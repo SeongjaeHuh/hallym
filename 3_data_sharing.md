@@ -7,7 +7,7 @@
 USE ROLE ACCOUNTADMIN; 
 ```
 ```
----- Sample Data 생성 ----
+---- Create Sample Data ----
 CREATE OR REPLACE DATABASE DATA_S;
 USE DATA_S;
 CREATE OR REPLACE TABLE DATA_S.PUBLIC.CUSTOMERS (
@@ -133,7 +133,7 @@ select * from DATA_S.PUBLIC.CUSTOMERS_1;
 ```
 
 ## Reader Account
-### 리더 주소로 접속
+### Connect to Reader Account
 
 ```
 
