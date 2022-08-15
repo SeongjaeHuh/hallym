@@ -190,13 +190,3 @@ SELECT * FROM DATA_SHARE_DB.PUBLIC.CUSTOMERS;
 ```
 
 ![image](https://user-images.githubusercontent.com/52474199/183607839-8f8a1a81-20f4-4de6-8f3f-b8e9d3ef56ef.png)
-
-
-> 참고로 shared db를 1건 delete 하니 공유 받은 쪽에서도 delete가 되네. sync가 되는구나.
-> 원천에서 drop 해도 reader에서 드랍되고, 원천에서 다시 크리에이트 한 뒤, 데이터 생성해주고, GRANT 주니까 reader에서 잘 보임
-
-![image](https://user-images.githubusercontent.com/52474199/183609959-711228f0-3fba-43c1-ae84-835e1ec2fb36.png)
-
-
-![image](https://user-images.githubusercontent.com/52474199/183608619-eace4bfa-365c-4251-8ad9-97a38bb13ffd.png)
-
