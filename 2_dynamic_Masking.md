@@ -161,7 +161,7 @@ SELECT * FROM EMPLOYEES;
 
 
 ## Conclusion
-> We can simplify the management of row-level security for fine-grained access control of your sensitive data building on the foundation of role-based access control. 
+> we demonstrated how you can simplify the management of row-level security for fine-grained access control of your sensitive data building on the foundation of role-based access control. 
 > Snowflake supports row-level, column-level, and cell-level access control for data stored in Storage.
 
 [참고](https://docs.snowflake.com/en/user-guide/security-column-intro.html#how-does-a-masking-policy-work)
