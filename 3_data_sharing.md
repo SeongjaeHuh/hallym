@@ -1,6 +1,12 @@
 # Data Sharing
 
 ## Data Sharing Type
+>  Providers
+>>  A data provider is any Snowflake account that creates shares and makes them available to other Snowflake accounts to consume. They share a database with one or more Snowflake accounts. And make access control to selected objects in the database.
+
+> Consumers
+>> A data consumer, once you add a shared database to your account, you can access and query the objects in the database just as you would with any other database in your account.
+
 ![image](https://user-images.githubusercontent.com/52474199/184577761-8ecc9f99-8d58-46cc-af94-ae0118766ff4.png)
 
 
