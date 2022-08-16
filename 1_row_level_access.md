@@ -36,8 +36,7 @@ INSERT INTO sales_entitlements VALUES ('SALES_EU', 'EU'), ('SALES_US', 'US'), ('
 
 
 ###  Step 2: Create the Row Access Policy
-> if the requesting role is SALES_ADMIN, they will see all sales, regardless of region. 
-> 
+> In Role SALES_ADMIN, they will see all sales, regardless of region.  
 > However, other roles will be looked up in the mapping table, to check if the current role can view data from the specific region:
 
 ```
