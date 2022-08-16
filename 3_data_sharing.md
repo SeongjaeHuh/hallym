@@ -70,46 +70,6 @@ SHOW GRANTS TO SHARE CUSTOMERS_SHARE;
 ```
 ![image](https://user-images.githubusercontent.com/52474199/184577142-8591196f-bf57-417b-b0f3-e7d4895bacb9.png)
 
-
-# case 1. Sharing to Full Account (Snowflake 계정이 존재하는 고객)
-
-### Step 4: Add Consumer Account
-```
-ALTER SHARE CUSTOMERS_SHARE ADD ACCOUNT=skcctest01;
-```
-![image](https://user-images.githubusercontent.com/52474199/183403120-503450ff-d8df-42fe-b052-1ea5e37a339e.png)
-
-
-## on Consumer Side
-
-### Step 5: Shared object check
-```
---------------------------------------Data Customer------------------------
-use role ACCOUNTADMIN;
-show shares;
-```
-![image](https://user-images.githubusercontent.com/52474199/183402575-3984270c-5a75-4240-8561-e9ac490c0ab1.png)
-
-
-```
-desc share jn90843.CUSTOMERS_SHARE; /* from provider account (shared from) */
-```
-![image](https://user-images.githubusercontent.com/52474199/183402869-5d5dcb5f-4a57-4f97-ae4d-77cabc187c7c.png)
-
-
-### Step 6: Create Database from Shared object
-```
-create or replace database DATA_S from share jn90843.CUSTOMERS_SHARE;
-use DATA_S;
-select * from DATA_S.PUBLIC.CUSTOMERS;
-```
-![image](https://user-images.githubusercontent.com/52474199/183402945-5d2e71aa-1f38-479c-b847-d51ff28e4237.png)
-
-
-
-# Case 2: Sharing to Read Account (Snowflake 계정이 없는 고객)
-
-## on Provider Account
 ### Step 4: Create Reader Account
 ```
 DROP MANAGED ACCOUNT demo_account;
