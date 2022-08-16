@@ -192,7 +192,7 @@ INITIALLY_SUSPENDED = TRUE;
 
 ```
 // Validate table access
-SELECT * FROM DATA_SHARE_DB.PUBLIC.CUSTOMERS;
+SELECT * FROM DATA_SHARE_DB.PUBLIC.CUSTOMERS_1;
 ```
 
 ![image](https://user-images.githubusercontent.com/52474199/183607839-8f8a1a81-20f4-4de6-8f3f-b8e9d3ef56ef.png)
