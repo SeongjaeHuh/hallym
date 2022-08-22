@@ -1,13 +1,27 @@
 # Data Sharing
 
 ## Data Sharing Type
->  Providers
->>  A data provider is any Snowflake account that creates shares and makes them available to other Snowflake accounts to consume. They share a database with one or more Snowflake accounts. And make access control to selected objects in the database.
+###  Providers
+1. Snowflake account that creates shares and makes them available for others to consume.
+2. Unlimited number of shares can be created, and an unlimited number of accounts can be added to a share
+3. Grants provide granular access control to selected objects, including at the row level (using filters)
 
-> Consumers
->> A data consumer, once you add a shared database to your account, you can access and query the objects in the database just as you would with any other database in your account.
+### Consumers
+1. Snowflake account that accesses a share from another account.
+2. Create a local database to "hold" the share
+3. Can consume an unlimited number of shares.
+4. Are charged for their own compute on that share.
+
 
 ![image](https://user-images.githubusercontent.com/52474199/184577761-8ecc9f99-8d58-46cc-af94-ae0118766ff4.png)
+
+
+## About Shares
+1. Shares are read-only
+2. Tables, secure views, and secure UDFs can be shared
+3. Access to a share can be revoked at any time
+4. Consumers can create new tables from a share
+5. Shares are limited to a single region and cloud provider. Database replication can be used to share to another region or cloud provider.
 
 
 ## on Provider side
