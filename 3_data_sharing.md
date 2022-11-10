@@ -81,6 +81,8 @@ GRANT USAGE ON SCHEMA DATA_S.PUBLIC TO SHARE CUSTOMERS_SHARE;
 GRANT SELECT ON TABLE DATA_S.PUBLIC.CUSTOMERS TO SHARE CUSTOMERS_SHARE; 
 // Validate Grants
 SHOW GRANTS TO SHARE CUSTOMERS_SHARE;
+// Revoke  SELECT on table
+Revoke SELECT ON TABLE DATA_S.PUBLIC.CUSTOMERS FROM SHARE CUSTOMERS_SHARE;
 ```
 ![image](https://user-images.githubusercontent.com/52474199/184577142-8591196f-bf57-417b-b0f3-e7d4895bacb9.png)
 
@@ -170,3 +172,5 @@ SELECT * FROM DATA_SHARE_DB.PUBLIC.CUSTOMERS_1;
 ```
 
 ![image](https://user-images.githubusercontent.com/52474199/183607839-8f8a1a81-20f4-4de6-8f3f-b8e9d3ef56ef.png)
+
+https://docs.snowflake.com/ko/user-guide/data-sharing-provider.html
