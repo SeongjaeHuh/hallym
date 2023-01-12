@@ -120,7 +120,6 @@ grant select,update,delete on all views in database DYNAMIC_MASKING to role SUPP
 -- warehouse usage permission
 grant usage on warehouse compute_wh to role ANALYST;
 grant usage on warehouse compute_wh to role SUPPORT;
-
 ```
 
 #### (cf) Grantig masking policy to role support
