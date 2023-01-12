@@ -43,12 +43,12 @@ INSERT into Employees VALUES
 
 ### Step 2: Create the Column Masking Policy
 
-#### leave email domain unmasked to role SUPPORTER
+#### leave email domain unmasked to role SUPPORT
 ```
 create or replace masking policy email_mask as (val string) returns string ->
 case
   when current_role() in ('ANALYST') then val
-  when current_role() in ('SUPPORTER') then regexp_replace(val,'.+\@','*****@') -- leave email domain unmasked
+  when current_role() in ('SUPPORT') then regexp_replace(val,'.+\@','*****@') -- leave email domain unmasked
   else '********'
 end;
 ```
@@ -65,7 +65,7 @@ create or replace masking policy position_mask as (val string) returns string ->
 ![image](https://user-images.githubusercontent.com/52474199/184529133-ba761ca4-a141-4253-8b10-9a1791a36d0f.png)
 
 
-#### return hash of the column value to role SUPPORTER
+#### return hash of the column value to role SUPPORT
 ```  
 create or replace masking policy userpassword_mask as (val string) returns string ->
 case
@@ -75,11 +75,11 @@ end;
 ```
 ![image](https://user-images.githubusercontent.com/52474199/184529155-74fcd00f-5054-459a-b194-438741d40dd8.png)
 
-#### making no masking policy to role SUPPORTER 
+#### making no masking policy to role SUPPORT
 ```
 create or replace masking policy fullname_mask as (val string) returns string ->
   case
-    when current_role() in ('SUPPORTER') then val
+    when current_role() in ('SUPPORT') then val
     else '*********'
   end;
 ```
@@ -96,14 +96,14 @@ alter table if exists EMPLOYEES modify column position set masking policy positi
 alter table if exists EMPLOYEES modify column userpassword set masking policy userpassword_mask;
 alter table if exists EMPLOYEES modify column fullname set masking policy fullname_mask;
 ```
-### Step 4: Create & Granting Permissions on Role (Analyst, Supporter)
+### Step 4: Create & Granting Permissions on Role (Analyst, Support)
 ```
 CREATE ROLE ANALYST;
-CREATE ROLE SUPPORTER;
+CREATE ROLE SUPPORT;
 
 -- grant role to the_user_we_want_to_assign
 GRANT ROLE ANALYST TO USER SFADMIN;
-GRANT ROLE SUPPORTER TO USER SFADMIN;
+GRANT ROLE SUPPORT TO USER SFADMIN;
 
 -- object usage permission on ANALYST
 grant usage on database DYNAMIC_MASKING to role ANALYST;
@@ -111,25 +111,25 @@ grant usage on all schemas in database DYNAMIC_MASKING to role ANALYST;
 grant select,update,delete on all tables in database DYNAMIC_MASKING to role ANALYST;
 grant select,update,delete on all views in database DYNAMIC_MASKING to role ANALYST;
 
--- object usage permission on SUPPORTER
-grant usage on database DYNAMIC_MASKING to role SUPPORTER;
-grant usage on all schemas in database DYNAMIC_MASKING to role SUPPORTER;
-grant select,update,delete on all tables in database DYNAMIC_MASKING to role SUPPORTER;
-grant select,update,delete on all views in database DYNAMIC_MASKING to role SUPPORTER;
+-- object usage permission on SUPPORT
+grant usage on database DYNAMIC_MASKING to role SUPPORT;
+grant usage on all schemas in database DYNAMIC_MASKING to role SUPPORT;
+grant select,update,delete on all tables in database DYNAMIC_MASKING to role SUPPORT;
+grant select,update,delete on all views in database DYNAMIC_MASKING to role SUPPORT;
 
 -- warehouse usage permission
 grant usage on warehouse compute_wh to role ANALYST;
-grant usage on warehouse compute_wh to role SUPPORTER;
+grant usage on warehouse compute_wh to role SUPPORT;
 
 ```
 
-#### (cf) Grantig masking policy to role supporter 
+#### (cf) Grantig masking policy to role support
 
 ```
 use role accountadmin;
 
--- Grantig masking policy to role supporter 
-grant create masking policy on schema <schema_name> to role supporter;
+-- Grantig masking policy to role support
+grant create masking policy on schema <schema_name> to role support;
 ```
 
 
@@ -145,9 +145,9 @@ SELECT * FROM EMPLOYEES;
 ```
 ![image](https://user-images.githubusercontent.com/52474199/163595325-5532744b-e4ac-4c1f-b261-ea646a4048ca.png)
 
-#### (3). Use Role SUPPORTER (r.e.@email, masking@position, hashing@userpassword)
+#### (3). Use Role SUPPORT (r.e.@email, masking@position, hashing@userpassword)
 ```
-use role SUPPORTER;
+use role SUPPORT;
 SELECT * FROM EMPLOYEES;
 ```
 ![image](https://user-images.githubusercontent.com/52474199/163595052-e670d3fc-c905-4527-ad5e-5eb7edc96ca6.png)
