@@ -5,10 +5,10 @@
 ### (2) Warehouse, User 생성
 
 ## 2. Data Sharing & Ext Table 구성
-### (1) [기술검증](https://github.com/SeongjaeHuh/snowflake/blob/main/hallym/%EA%B8%B0%EC%88%A0%EA%B2%80%EC%A6%9D1.md)
+### (1) [기술검증](https://github.com/SeongjaeHuh/hallym/blob/main/PoC/1_ext_share.md)
 ### (2) [Table Loading](https://github.com/SeongjaeHuh/snowflake/blob/main/hallym/load_table_s3.md)
-### (3) [Secure Data Sharing](https://github.com/SeongjaeHuh/snowflake/blob/main/hallym/data_share.md)
-### (4) [External Table 생성](https://github.com/SeongjaeHuh/snowflake/blob/main/hallym/external_tables.md)
+### (3) [Secure Data Sharing](https://github.com/SeongjaeHuh/hallym/blob/main/3_data_sharing.md)
+### (4) [External Table 생성](https://github.com/SeongjaeHuh/hallym/blob/main/PoC/create_ext_table.md)
 
 ## 3. Data Governance
 ### (1) [RBAC](https://github.com/SeongjaeHuh/snowflake/blob/main/SG_create/role_hierarchy.md)
