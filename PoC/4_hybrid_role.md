@@ -111,9 +111,9 @@ insert into "HALLYM_DEV"."HALLYM_DEV"."HEALTH_CLINIC_DEPT" values ('앙과','앙
 ![image](https://user-images.githubusercontent.com/52474199/214993408-5e706aae-afcc-4aab-8e83-bd4d7312a1b4.png)
 
 ## user_analyst : read all tables in hallym
-![image](https://user-images.githubusercontent.com/52474199/215128546-e9aaa516-4f3b-4773-bfc4-153ed04f07f2.png)
+![image](https://user-images.githubusercontent.com/52474199/215129761-78310746-975a-4ef8-bfbe-97342be495d1.png)
 
 
 ## user_in_half : read only 2 tables in hallym
-![image](https://user-images.githubusercontent.com/52474199/215128238-4be28aa9-fbaa-44db-a2df-a65fc35bddc3.png)
 
+![215128238-4be28aa9-fbaa-44db-a2df-a65fc35bddc3 (1)](https://user-images.githubusercontent.com/52474199/215129634-73b4daf9-9e81-4449-975e-3fb0e7949fed.png)
