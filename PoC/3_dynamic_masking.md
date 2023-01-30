@@ -153,7 +153,7 @@ SELECT * FROM EMPLOYEES;
 
 #### (4).  Use Role ETC (MASKING @fullname, @email, @position, @department)
 ```
-use role accountadmin;
+use role sysadmin;
 SELECT * FROM EMPLOYEES;
 ```
 ![image](https://user-images.githubusercontent.com/52474199/163594563-f1d99ff7-c9b2-49bd-a740-1d2a5626a0ea.png)
