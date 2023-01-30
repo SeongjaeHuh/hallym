@@ -11,8 +11,8 @@
 ### (4) [External Table 생성](https://github.com/SeongjaeHuh/hallym/blob/main/PoC/create_ext_table.md)
 
 ## 3. Data Governance
-### (1) [RBAC](https://github.com/SeongjaeHuh/snowflake/blob/main/SG_create/role_hierarchy.md)
-### (2) [Custom Role](https://github.com/SeongjaeHuh/snowflake/blob/main/SG_create/create_hybrid_role.md)
+### (1) [RBAC](https://github.com/SeongjaeHuh/hallym/blob/main/PoC/RBAC.md)
+### (2) [Custom Role](https://github.com/SeongjaeHuh/hallym/blob/main/PoC/RBAC.md)
 ### (3) [Row-Level-Ctrl](https://github.com/SeongjaeHuh/snowflake/blob/main/hallym/row_level_access.md)
 ### (4) [Dynamic-Masking](https://github.com/SeongjaeHuh/hallym/blob/main/2_dynamic_masking.md)
 
