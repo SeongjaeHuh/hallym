@@ -5,10 +5,10 @@
 ![image](https://user-images.githubusercontent.com/52474199/214791755-6b11903f-1ce9-4ec0-8979-f941decdcf70.png)
 
 ## 작업방법
-### 1. (한림대) Table 생성 (1/3) 
-### 2. (강릉아산, 울산대) S3 저장 (2/3)
-### 3. (한림대) Ext Tab 생성 
-### 4. 통합 Table 생성 후 Share to (강릉아산), (울산대)
+### 1. (한림대) 내부 Table 생성 후 적재
+### 2. (강릉아산, 울산대) 병원별 Data S3 저장
+### 3. (한림대) 병원별 Data Ext. Table 생성 
+### 4. 통합 내부 Table + Ext. Table 통합 생성 후 Share to (강릉아산), (울산대)
 
 ***
 
