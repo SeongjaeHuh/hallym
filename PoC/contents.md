@@ -17,7 +17,7 @@
 ### (4) [Dynamic-Masking](https://github.com/SeongjaeHuh/hallym/blob/main/2_dynamic_masking.md)
 
 ## 4. 비용관리
-### (1) [Resource Monitoring](https://github.com/SeongjaeHuh/snowflake/blob/main/SG_create/manage_account.md)
+### (1) Resource Monitoring
 ### (2) Warehouse 분리과금 : Custom Role 별 warehouse 분리되는 것. 3.(3)에 추가
 
 ## 5. 성능
