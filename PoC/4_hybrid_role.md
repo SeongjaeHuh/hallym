@@ -75,6 +75,12 @@ grant usage on warehouse GUEST_WH to role hybrid_dev;
 grant monitor on warehouse GUEST_WH to role hybrid_dev;
 ```
 
+## 운영 ownership 을 개발 ownership으로 이관
+
+```
+grant ownership on all tables in database HALLYM_DEV to role hybrid_dev copy current grants;
+```
+
 ## User 생성
 ```
 --신규 user를 user_hybrid_admin 이름으로 생성, 초기 패스워드는 'Qwer1234', 최초 로그인시 바꾸도록 설정
