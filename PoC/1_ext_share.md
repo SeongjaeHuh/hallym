@@ -305,7 +305,8 @@ select * from "EXT_SHARE_1"."SHARE"."CPR";
 
 ![image](https://user-images.githubusercontent.com/52474199/214991622-dd49139f-fb00-4d0a-a1f0-8eac2a6cf2b4.png)
 
-***
+*** 
+## 참고
 ### 1. Revoke on Provider side
 ![image](https://user-images.githubusercontent.com/52474199/215711168-0a25d596-6f49-4931-9e88-312b325960ff.png)
 ```sql
