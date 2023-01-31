@@ -24,7 +24,7 @@
 ```sql
 create schema hallym.share;
 
-create or replace TABLE "CPR" (
+create or replace TABLE "INT_CPR_1" (
 	"작성시간" VARCHAR(20),
 	__RRT NUMBER(38,0),
 	__TOT_4 NUMBER(38,0),
@@ -73,7 +73,7 @@ CREATE STAGE ulsan_stage URL = 's3://ulsan-hallym-uni-poc-bucket' CREDENTIALS = 
 > describes a set of staged data to access or load into Snowflake tables.
 
 ```sql
-CREATE FILE FORMAT "HALLYM"."HALLYM".NULLABLE_CSV_FORMAT 
+CREATE FILE FORMAT "HALLYM"."SHARE".NULLABLE_CSV_FORMAT 
    SET COMPRESSION = 'AUTO' FIELD_DELIMITER = ',' RECORD_DELIMITER = '\n' 
    SKIP_HEADER = 1 FIELD_OPTIONALLY_ENCLOSED_BY = 'NONE' TRIM_SPACE = FALSE
    ERROR_ON_COLUMN_COUNT_MISMATCH = FALSE ESCAPE = 'NONE' ESCAPE_UNENCLOSED_FIELD = '\134' 
@@ -84,9 +84,9 @@ CREATE FILE FORMAT "HALLYM"."HALLYM".NULLABLE_CSV_FORMAT
 ### 4. TABLE LOAD FROM S3 Bucket
 
 ```sql
-copy into CPR
+copy into INT_CPR_1
   from @HALLYM.share.hallym_stage/structured-csv-data/CPR-AI-predict/20220725v2_CPR_split_3.csv
-  file_format = (format_name = hallym.hallym.NULLABLE_CSV_FORMAT);
+  file_format = (format_name = hallym.share.NULLABLE_CSV_FORMAT);
 ```
 ![image](https://user-images.githubusercontent.com/52474199/214518532-765d0055-4be7-4436-8411-31533946cd4a.png)
 
@@ -128,7 +128,7 @@ create or replace external table HALLYM.SHARE.EXT_CPR_3 (
 )
  
  with location =  @hallym.share.gnah_stage/structured-csv-data/CPR-AI-predict/
-  file_format = hallym.hallym.NULLABLE_CSV_FORMAT;
+  file_format = hallym.share.NULLABLE_CSV_FORMAT;
 ```
 
 ### 2. 울산대 EXT table 생성
@@ -166,7 +166,7 @@ create or replace external table HALLYM.SHARE.EXT_CPR_2 (
 )
  
  with location =  @hallym.share.ulsan_stage/structured-csv-data/CPR-AI-predict/
-  file_format = hallym.hallym.NULLABLE_CSV_FORMAT;
+  file_format = hallym.share.NULLABLE_CSV_FORMAT;
 ```
 
 ```sql
