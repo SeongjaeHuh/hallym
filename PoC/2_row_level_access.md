@@ -9,7 +9,7 @@
 ## 2. Create Sample Table
 
 ### 2.1. Create table HEART_CLONE by using copy clone.
-```
+```sql
 /*
 create database sec;
 create schema sec;
@@ -37,7 +37,7 @@ create or replace TABLE HEART_CLONE (
 ```
 
 ### 2.2. Make the Dupl. Data
-```
+```sql
 INSERT INTO HEART_CLONE (
   SELECT ID + 3000, /*300 x 10번 증가 */
          AGE, SEX, CP, TRESTBPS, CHOL, FBS, RESTECG, THALACH, EXANG, OLDPEAK, SLOPE, CA, THAL, TARGET
@@ -46,12 +46,12 @@ INSERT INTO HEART_CLONE (
    
 ```
 ### 2.3. Alter Table (ADD) DEPT COLUMN 
-```
+```sql
 ALTER TABLE HEART_CLONE add column DEPT varchar(24) NULL;
 ```
 
 ### 2.4. DEPT COLUMN DATA 입력 (5개 진료부서)
-```
+```sql
 UPDATE HEART_CLONE
 SET DEPT = CASE WHEN MOD(id, 5) = 0 THEN 'FM' /* Family Medicine 가정의학과 */
                 WHEN MOD(id, 5) = 1 THEN 'ED' /* Endocrinology 내분비내과 */
@@ -65,7 +65,7 @@ END;
 ![image](https://user-images.githubusercontent.com/52474199/211752516-aa3a9132-ca28-4db9-8623-079dc6f9ff00.png)
 
 ### 2.6. ID 중복 건 확인
-```
+```sql
 SELECT * 
   FROM
        (
@@ -97,7 +97,7 @@ INSERT INTO dept_entitlements VALUES ('USER_FM', 'FM'), ('USER_ED', 'ED'), ('USE
 > In Role DEPT_ADMIN, they will see all Data, regardless of Dept.  
 > However, other roles will be looked up in the mapping table, to check if the current role can view data from the specific Dept:
 
-```
+```sql
 CREATE ROW ACCESS POLICY dept_access  AS (dept_filter VARCHAR) 
  RETURNS BOOLEAN -> CURRENT_ROLE() = 'DEPT_ADMIN' 
  OR EXISTS (
@@ -110,13 +110,13 @@ CREATE ROW ACCESS POLICY dept_access  AS (dept_filter VARCHAR)
 ### Step 3: Apply the Access Policy.
 > The dept_access policy apply on the dept column of HEART_CLONE.
 
-```
+```sql
 ALTER TABLE HEART_CLONE ADD ROW ACCESS POLICY dept_access ON (dept);
 ```
 
 ### Step 4: Create & Granting Permissions on Role
 
-```
+```sql
 use role accountadmin;
 
 -- create new roles
@@ -180,7 +180,7 @@ grant usage on warehouse compute_wh to role USER_CV;
 
 ### Step5. Create a User & Grant Role
 
-```
+```sql
 create user user_sec password = 'Qwer!1212' must_change_password = false;
 
 --user_analyst에 analyst Role을 부여 (dba, elt, dev, analyst 중 택 1)
@@ -204,7 +204,7 @@ GRANT ROLE USER_CV TO USER user_sec;
 
 ### Results
 > DEPT_ADMIN, they will see all data, regardless of dept. 
-```
+```sql
 USE ROLE DEPT_ADMIN;
 SELECT * FROM HEART_CLONE;
 SELECT count(*) FROM HEART_CLONE;
@@ -213,7 +213,7 @@ SELECT count(*) FROM HEART_CLONE;
 ![image](https://user-images.githubusercontent.com/52474199/211749496-64a5a4a6-a699-4c14-9e15-c8e0e668ec61.png)
 
 > the USER_FM role can view data only in FM Dept.
-```
+```sql
 USE ROLE USER_FM;
 SELECT * FROM HEART_CLONE;
 SELECT count(*) FROM HEART_CLONE;
@@ -223,7 +223,7 @@ SELECT count(*) FROM HEART_CLONE;
 
 
 > the USER_ED role can view data only in ED Dept.
-```
+```sql
 USE ROLE USER_ED;
 SELECT * FROM HEART_CLONE;
 SELECT count(*) FROM HEART_CLONE;
