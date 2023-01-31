@@ -289,13 +289,20 @@ ALTER SHARE EXT_SHARE_1 ADD ACCOUNT=UP52144; /*울산대*/
 
 ### 2. on Consumer
 ```sql
-drop database ext_share_1;
+
+USE ROLE ACCOUNTADMIN;
+SHOW SHARES;
+```
+![image](https://user-images.githubusercontent.com/52474199/215708605-b878cf6b-cb70-4ecf-bee6-d07576e78c83.png)
+
+```sql
+--drop database ext_share_1;
 
 create database ext_share_1;
 create schema ext_share_1;
 
 use role accountadmin;
-SHOW SHARES;
+
 
 create or replace database ext_share_1 from share ATIXOAJ.HALLYM_POC.EXT_SHARE_1;
 use ext_share_1;
