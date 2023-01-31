@@ -22,6 +22,7 @@
 ### 1. CPR Table 생성 
 
 ```sql
+create database hallym;
 create schema hallym.share;
 
 create or replace TABLE "INT_CPR_1" (
