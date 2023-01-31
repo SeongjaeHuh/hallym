@@ -1,5 +1,5 @@
 ## 1. 공통
-```
+```sql
 -- Role : hybrid, hybrid_dev
 -- User : user_hybrid_admin, user_hybrid_dev
 
@@ -15,7 +15,7 @@ grant role hybrid_dev to role sysadmin;
 ```
 
 ## 2. 개발계 (hybrid_dev)
-```
+```sql
 use role accountadmin;
 
 -- hybrid_dev
@@ -77,12 +77,12 @@ grant monitor on warehouse GUEST_WH to role hybrid_dev;
 
 ## 운영 ownership 을 개발 ownership으로 이관
 
-```
+```sql
 grant ownership on all tables in database HALLYM_DEV to role hybrid_dev copy current grants;
 ```
 
 ## User 생성
-```
+```sql
 --신규 user를 user_hybrid_admin 이름으로 생성, 초기 패스워드는 'Qwer1234', 최초 로그인시 바꾸도록 설정
 create user user_hybrid password = 'Qwer!1212' must_change_password = false;
 
@@ -97,7 +97,7 @@ alter user user_hybrid set default_warehouse = 'GUEST_WH';
 ```
 
 ## Use hybrid Role
-```
+```sql
 use role hybrid_dev;
 use HALLYM.HALLYM;
 select * from "HALLYM"."HALLYM"."HEALTH_CLINIC_DEPT";
@@ -108,7 +108,7 @@ insert into "HALLYM"."HALLYM"."HEALTH_CLINIC_DEPT" values ('앙과','앙','꽈')
 
 ![image](https://user-images.githubusercontent.com/52474199/214993169-370a979e-0c2a-45ae-a5fb-f9320b188e67.png)
 
-```
+```sql
 --개발 (성공)
 use HALLYM_DEV.HALLYM_DEV;
 insert into "HALLYM_DEV"."HALLYM_DEV"."HEALTH_CLINIC_DEPT" values ('앙과','앙','꽈');
