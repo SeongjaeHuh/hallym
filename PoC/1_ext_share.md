@@ -21,7 +21,7 @@
 
 ### 1. CPR Table 생성 
 
-```
+```sql
 create schema hallym.share;
 
 create or replace TABLE "CPR" (
@@ -63,7 +63,7 @@ create or replace TABLE "CPR" (
 
 [More About Stage](https://thinketl.com/types-of-snowflake-stages-data-loading-and-unloading-features/)
 
-```
+```sql
 CREATE STAGE hallym_stage URL = 's3://hallym-uni-poc-bucket' CREDENTIALS = (AWS_KEY_ID = 'AKIAWVIB7Z6F34RMP5==' AWS_SECRET_KEY = 'QuGf59LG5Z8o2+7r0Mr7vVc4Fm3NRlb3inSEGF==');
 CREATE STAGE gnah_stage URL = 's3://asan-hallym-uni-poc-bucket' CREDENTIALS = (AWS_KEY_ID = 'AKIAWVIB7Z6F34RMP5==' AWS_SECRET_KEY = 'QuGf59LG5Z8o2+7r0Mr7vVc4Fm3NRlb3inSEGF==');
 CREATE STAGE ulsan_stage URL = 's3://ulsan-hallym-uni-poc-bucket' CREDENTIALS = (AWS_KEY_ID = 'AKIAWVIB7Z6F34RMP5==' AWS_SECRET_KEY = 'QuGf59LG5Z8o2+7r0Mr7vVc4Fm3NRlb3inSEGF==');
@@ -72,7 +72,7 @@ CREATE STAGE ulsan_stage URL = 's3://ulsan-hallym-uni-poc-bucket' CREDENTIALS = 
 ### 3. File Format 생성
 > describes a set of staged data to access or load into Snowflake tables.
 
-```
+```sql
 CREATE FILE FORMAT "HALLYM"."HALLYM".NULLABLE_CSV_FORMAT 
    SET COMPRESSION = 'AUTO' FIELD_DELIMITER = ',' RECORD_DELIMITER = '\n' 
    SKIP_HEADER = 1 FIELD_OPTIONALLY_ENCLOSED_BY = 'NONE' TRIM_SPACE = FALSE
@@ -83,7 +83,7 @@ CREATE FILE FORMAT "HALLYM"."HALLYM".NULLABLE_CSV_FORMAT
 
 ### 4. TABLE LOAD FROM S3 Bucket
 
-```
+```sql
 copy into CPR
   from @HALLYM.share.hallym_stage/structured-csv-data/CPR-AI-predict/20220725v2_CPR_split_3.csv
   file_format = (format_name = hallym.hallym.NULLABLE_CSV_FORMAT);
@@ -95,7 +95,7 @@ copy into CPR
 
 
 ### 1. 강릉아산 EXT table 생성
-```
+```sql
 create or replace external table HALLYM.SHARE.EXT_CPR_3 (
     "작성시간" VARCHAR(20) AS (VALUE:c1:: VARCHAR),
     "__RRT" NUMBER(38,0) AS (VALUE:c2:: NUMBER),
@@ -133,7 +133,7 @@ create or replace external table HALLYM.SHARE.EXT_CPR_3 (
 
 ### 2. 울산대 EXT table 생성
 
-```
+```sql
 create or replace external table HALLYM.SHARE.EXT_CPR_2 (
     "작성시간" VARCHAR(20) AS (VALUE:c1:: VARCHAR),
     "__RRT" NUMBER(38,0) AS (VALUE:c2:: NUMBER),
@@ -169,7 +169,7 @@ create or replace external table HALLYM.SHARE.EXT_CPR_2 (
   file_format = hallym.hallym.NULLABLE_CSV_FORMAT;
 ```
 
-```
+```sql
 select count(*) from  HALLYM.SHARE.EXT_CPR_3;
 ```
 ![image](https://user-images.githubusercontent.com/52474199/214520113-3a4ed605-34af-48da-bad8-89bdb7723809.png)
@@ -178,7 +178,7 @@ select count(*) from  HALLYM.SHARE.EXT_CPR_3;
 ## Step 4. 신규 Table 생성(내부 Table + Ext Table 2개 Union all)
 
 ### 1. 한림대 + 강릉아산 + 울산대 Data 
-```
+```sql
 CREATE TABLE CPR AS
  SELECT * FROM INT_CPR_1
  
@@ -255,7 +255,7 @@ select count(*) from CPR ;
 
 ### 1. Create a Share Object
 
-```
+```sql
 USE ROLE ACCOUNTADMIN;
 drop share EXT_SHARE_1;
 
@@ -285,7 +285,7 @@ ALTER SHARE EXT_SHARE_1 ADD ACCOUNT=UP52144; /*울산대*/
 
 
 ### 2. on Consumer
-```
+```sql
 drop database ext_share_1;
 
 create database ext_share_1;
