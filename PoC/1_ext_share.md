@@ -296,14 +296,6 @@ SHOW SHARES;
 ![image](https://user-images.githubusercontent.com/52474199/215708605-b878cf6b-cb70-4ecf-bee6-d07576e78c83.png)
 
 ```sql
---drop database ext_share_1;
-
-create database ext_share_1;
-create schema ext_share_1;
-
-use role accountadmin;
-
-
 create or replace database ext_share_1 from share ATIXOAJ.HALLYM_POC.EXT_SHARE_1;
 use ext_share_1;
 use warehouse compute_wh;
@@ -312,3 +304,13 @@ select * from "EXT_SHARE_1"."SHARE"."CPR";
 ```
 
 ![image](https://user-images.githubusercontent.com/52474199/214991622-dd49139f-fb00-4d0a-a1f0-8eac2a6cf2b4.png)
+
+
+### (참고) Revoke on Provider side
+![image](https://user-images.githubusercontent.com/52474199/215711168-0a25d596-6f49-4931-9e88-312b325960ff.png)
+```sql
+alter share SHARE_HALLYM remove accounts = ATIXOAJ.ULSAN_POC;
+```
+![image](https://user-images.githubusercontent.com/52474199/215711367-446f6c01-d71f-48a5-8fbf-6e94b8453bf2.png)
+![image](https://user-images.githubusercontent.com/52474199/215711514-781d8ae8-2d5c-4dc2-8b52-daa0f74f5408.png)
+
