@@ -86,7 +86,7 @@ SELECT *
 ### Step 1: Create a Row-Level Security Configuration Table
 > We are creating a table that will contain the mapping of roles to DEPT.
 
-```
+```sql
 CREATE TABLE dept_entitlements (role_entitled string, dept string); 
 INSERT INTO dept_entitlements VALUES ('USER_FM', 'FM'), ('USER_ED', 'ED'), ('USER_NS', 'NS'), ('USER_DM', 'DM'), ('USER_CV', 'CV');
 ```
