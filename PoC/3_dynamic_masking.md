@@ -12,7 +12,7 @@
 ![image](https://user-images.githubusercontent.com/52474199/184530848-c7c9ab90-2212-4f6f-b0f1-fe4fac5e948d.png)
 
 ### Step 1: Create Sample Table
-```
+```sql
 create database dynamic_masking;
 create schema dynamic_masking;
 create or replace TABLE EMPLOYEES (
@@ -29,7 +29,7 @@ create or replace TABLE EMPLOYEES (
 
 
 ### Insert Sample Data
-```
+```sql
 INSERT into Employees VALUES 
 (1000,'John','19550219','john@test.tt','CEO','Administration','2414199323'), 
 (1001,'Daniel','19831203','daniel@test.tt','Programmer','IT','3978899323'), 
@@ -44,7 +44,7 @@ INSERT into Employees VALUES
 ### Step 2: Create the Column Masking Policy
 
 #### leave email domain unmasked to role SUPPORT
-```
+```sql
 create or replace masking policy email_mask as (val string) returns string ->
 case
   when current_role() in ('ANALYST') then val
@@ -55,7 +55,7 @@ end;
 ![image](https://user-images.githubusercontent.com/52474199/184529108-464282a3-330a-4b17-9bc5-dc87b70fffc1.png)
 
 #### making masking policy except ANALYST
-```
+```sql
 create or replace masking policy position_mask as (val string) returns string ->
   case
     when current_role() in ('ANALYST') then val
@@ -66,7 +66,7 @@ create or replace masking policy position_mask as (val string) returns string ->
 
 
 #### return hash of the column value to role SUPPORT
-```  
+```sql
 create or replace masking policy userpassword_mask as (val string) returns string ->
 case
   when current_role() in ('ANALYST') then val
@@ -76,7 +76,7 @@ end;
 ![image](https://user-images.githubusercontent.com/52474199/184529155-74fcd00f-5054-459a-b194-438741d40dd8.png)
 
 #### making no masking policy to role SUPPORT
-```
+```sql
 create or replace masking policy fullname_mask as (val string) returns string ->
   case
     when current_role() in ('SUPPORT') then val
@@ -89,7 +89,7 @@ create or replace masking policy fullname_mask as (val string) returns string ->
 
 
 ### Step 3: Apply the Access Policy
-```
+```sql
 use role accountadmin;
 alter table if exists EMPLOYEES modify column email set masking policy email_mask;
 alter table if exists EMPLOYEES modify column position set masking policy position_mask;
@@ -97,7 +97,7 @@ alter table if exists EMPLOYEES modify column userpassword set masking policy us
 alter table if exists EMPLOYEES modify column fullname set masking policy fullname_mask;
 ```
 ### Step 4: Create & Granting Permissions on Role (Analyst, Support)
-```
+```sql
 CREATE ROLE ANALYST;
 CREATE ROLE SUPPORT;
 
@@ -124,7 +124,7 @@ grant usage on warehouse compute_wh to role SUPPORT;
 
 #### (cf) Grantig masking policy to role support
 
-```
+```sql
 use role accountadmin;
 
 -- Grantig masking policy to role support
@@ -138,21 +138,21 @@ grant create masking policy on schema <schema_name> to role support;
 ![image](https://user-images.githubusercontent.com/52474199/163592996-3f8c14bf-d769-41eb-a5de-c4bd63f62167.png)
 
 #### (2). Use Role ANALYST (MASKING @fullname) - null with masking
-```
+```sql
 use role ANALYST;
 SELECT * FROM EMPLOYEES;
 ```
 ![image](https://user-images.githubusercontent.com/52474199/163595325-5532744b-e4ac-4c1f-b261-ea646a4048ca.png)
 
 #### (3). Use Role SUPPORT (r.e.@email, masking@position, hashing@userpassword)
-```
+```sql
 use role SUPPORT;
 SELECT * FROM EMPLOYEES;
 ```
 ![image](https://user-images.githubusercontent.com/52474199/163595052-e670d3fc-c905-4527-ad5e-5eb7edc96ca6.png)
 
 #### (4).  Use Role ETC (MASKING @fullname, @email, @position, @department)
-```
+```sql
 use role sysadmin;
 SELECT * FROM EMPLOYEES;
 ```
