@@ -245,7 +245,7 @@ CREATE TABLE CPR AS
         "최종대상자"
  FROM EXT_CPR_3;
 ```
-```
+```sql
 select count(*) from CPR ;
 ```
 ![image](https://user-images.githubusercontent.com/52474199/214523404-0ff5486e-2265-4cbf-9dc7-db7eeaaac74c.png)
@@ -272,13 +272,13 @@ GRANT USAGE ON SCHEMA HALLYM.SHARE TO SHARE EXT_SHARE_1;
 GRANT SELECT ON TABLE "HALLYM"."SHARE"."CPR" TO SHARE EXT_SHARE_1; 
 ```
 
-```
+```sql
 // Validate Grants
 SHOW GRANTS TO SHARE EXT_SHARE_1;
 ```
 ![image](https://user-images.githubusercontent.com/52474199/214526263-4c4d363c-f53f-457a-b8dd-8ba9e7e01d76.png)
 
-```
+```sql
 ALTER SHARE EXT_SHARE_1 ADD ACCOUNT=OM23657; /*강릉아산*/
 ALTER SHARE EXT_SHARE_1 ADD ACCOUNT=UP52144; /*울산대*/
 ```
