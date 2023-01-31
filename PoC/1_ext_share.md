@@ -282,6 +282,9 @@ SHOW GRANTS TO SHARE EXT_SHARE_1;
 ALTER SHARE EXT_SHARE_1 ADD ACCOUNT=OM23657; /*강릉아산*/
 ALTER SHARE EXT_SHARE_1 ADD ACCOUNT=UP52144; /*울산대*/
 ```
+![image](https://user-images.githubusercontent.com/52474199/215707369-c0283d14-dc68-4c8c-abb7-61d4bc4f7e40.png)
+![image](https://user-images.githubusercontent.com/52474199/215707733-d22700f1-3814-46df-a726-e41f6ba962d5.png)
+![image](https://user-images.githubusercontent.com/52474199/215707797-b881d965-d2e0-4af9-839f-55485f088654.png)
 
 
 ### 2. on Consumer
