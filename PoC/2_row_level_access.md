@@ -98,6 +98,7 @@ INSERT INTO dept_entitlements VALUES ('USER_FM', 'FM'), ('USER_ED', 'ED'), ('USE
 > However, other roles will be looked up in the mapping table, to check if the current role can view data from the specific Dept:
 
 ```sql
+
 CREATE ROW ACCESS POLICY dept_access  AS (dept_filter VARCHAR) 
  RETURNS BOOLEAN -> CURRENT_ROLE() = 'DEPT_ADMIN' 
  OR EXISTS (
@@ -112,6 +113,11 @@ CREATE ROW ACCESS POLICY dept_access  AS (dept_filter VARCHAR)
 
 ```sql
 ALTER TABLE HEART_CLONE ADD ROW ACCESS POLICY dept_access ON (dept);
+```
+> Row Access Policy Drop (순서 중요)
+```sql
+ALTER TABLE HEART_CLONE DROP ROW ACCESS POLICY dept_access;
+DROP ROW ACCESS POLICY IF EXISTS dept_access;
 ```
 
 ### Step 4: Create & Granting Permissions on Role
