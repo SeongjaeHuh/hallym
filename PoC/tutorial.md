@@ -1,7 +1,12 @@
 https://ox26529.ap-northeast-2.aws.snowflakecomputing.com/console/login#/
 
 Id: user1~user5
+PW : 개별 전달
 
+로그인 후 설정 변경(classic UI)
+![image](https://user-images.githubusercontent.com/52474199/215970816-12cbbbeb-42d3-486b-9a84-fdf0b5da2ed1.png)
+
+로그아웃 후 재 로그인
 
 ![image](https://user-images.githubusercontent.com/52474199/215958556-bb895f61-ff8a-430c-9bfd-a14c92b8d2c1.png)
 
