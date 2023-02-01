@@ -12,6 +12,9 @@ PW : 개별 전달
 
 로그아웃 후 재 로그인
 
+![image](https://user-images.githubusercontent.com/52474199/216052697-94cc16c8-2cd3-43de-a0c6-a6c19abea711.png)
+
+
 ![image](https://user-images.githubusercontent.com/52474199/215958556-bb895f61-ff8a-430c-9bfd-a14c92b8d2c1.png)
 
 ![image](https://user-images.githubusercontent.com/52474199/215958674-5bd3789e-2477-4178-a4fe-1fea69cec3ec.png)
