@@ -1,9 +1,10 @@
+https://bit.ly/3HMXucF
+[(tutorial)](https://github.com/SeongjaeHuh/hallym/edit/main/PoC/tutorial.md)
+
 https://bit.ly/3WW4rfQ
+[(snowflake_trial)](https://ox26529.ap-northeast-2.aws.snowflakecomputing.com/console/login#/)
 
-[(참고링크)](https://ox26529.ap-northeast-2.aws.snowflakecomputing.com/console/login#/)
-
-
-Id: user1~user5
+Id: user1~user20
 PW : 개별 전달
 
 로그인 후 설정 변경(classic UI)
