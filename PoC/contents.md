@@ -1,4 +1,9 @@
-# 한림대 시연 시나리오 순서
+# 한림대 Demo 순서
+
+## 0. 계정정보
+### [(한림대)](https://bit.ly/3Y1uyU4)
+### [(강릉아산)](https://atixoaj-gnah_poc.snowflakecomputing.com/) 
+### [(울산대)](https://atixoaj-ulsan_poc.snowflakecomputing.com/)
 
 ## 1. (optional) Object 생성
 ### (1) DB, Schema, Table 생성 및 적재
@@ -18,7 +23,7 @@
 
 ## 4. 비용관리
 ### (1) Resource Monitoring
-### (2) Warehouse 분리과금 : Custom Role 별 warehouse 분리되는 것. 3.(3)에 추가
+### (2) Warehouse 분리과금
 
 ## 5. 성능
 ### (1) Data 증폭 후 Query Execution
