@@ -1,4 +1,7 @@
-https://ox26529.ap-northeast-2.aws.snowflakecomputing.com/console/login#/
+https://bit.ly/3WW4rfQ
+
+[(참고링크)](https://ox26529.ap-northeast-2.aws.snowflakecomputing.com/console/login#/)
+
 
 Id: user1~user5
 PW : 개별 전달
