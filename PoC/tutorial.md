@@ -1,8 +1,8 @@
 https://bit.ly/3HMXucF
-[(tutorial)](https://github.com/SeongjaeHuh/hallym/edit/main/PoC/tutorial.md)
+> [(tutorial)](https://github.com/SeongjaeHuh/hallym/edit/main/PoC/tutorial.md)
 
 https://bit.ly/3WW4rfQ
-[(snowflake_trial)](https://ox26529.ap-northeast-2.aws.snowflakecomputing.com/console/login#/)
+> [(snowflake_trial)](https://ox26529.ap-northeast-2.aws.snowflakecomputing.com/console/login#/)
 
 Id: user1~user20
 PW : 개별 전달
