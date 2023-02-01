@@ -55,24 +55,18 @@ create or replace TABLE MEASUREMENT_AMP_2 (
 ```
 
 ```sql
-COPY INTO "SEQ"."SEQ"."MEASUREMENT_AMP_2" 
+COPY INTO "SEQ"."SEQ"."MEASUREMENT_AMP_1" 
      FROM '@new_stage/structured-csv-data/data-heavy-load/' 
-     FILE_FORMAT = (format_name = 'MY_CSV_FORMAT') ON_ERROR = 'ABORT_STATEMENT' PURGE = FALSE;
+     FILE_FORMAT = (format_name = 'NULLABLE_CSV_FORMAT') ON_ERROR = 'ABORT_STATEMENT' PURGE = FALSE;
 
 ```
+
 ### 적재 소요시간
 ![image](https://user-images.githubusercontent.com/52474199/216042864-3f247430-7351-492c-aebd-88319a6d9023.png)
 
 ### 조회 소요시간
 ![image](https://user-images.githubusercontent.com/52474199/216043025-61e116de-7a73-4e30-a62b-63fea155f021.png)
 
-
-```sql
-COPY INTO "SEQ"."SEQ"."MEASUREMENT_AMP_1" 
-     FROM '@new_stage/structured-csv-data/data-heavy-load/' 
-     FILE_FORMAT = (format_name = 'NULLABLE_CSV_FORMAT') ON_ERROR = 'ABORT_STATEMENT' PURGE = FALSE;
-
-```
 
 
 ![image](https://user-images.githubusercontent.com/52474199/216040103-5d1c5114-5ec8-4e3f-bcf7-6b132000c8f6.png)
