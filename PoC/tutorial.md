@@ -7,8 +7,6 @@ Id: user1~user5
 
 ![image](https://user-images.githubusercontent.com/52474199/215958674-5bd3789e-2477-4178-a4fe-1fea69cec3ec.png)
 
-![image](https://user-images.githubusercontent.com/52474199/215958487-e02aa898-0933-40d1-9e41-2a2be17141fb.png)
-
 ![image](https://user-images.githubusercontent.com/52474199/215958708-bd133130-d883-4e4e-95d1-fb4a3c719b91.png)
 
 ![image](https://user-images.githubusercontent.com/52474199/215958736-c2b4eb7c-a3be-421b-9393-f552f16c5edf.png)
