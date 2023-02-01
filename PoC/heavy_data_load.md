@@ -10,7 +10,7 @@ copy into @new_stage/structured-csv-data/data-heavy-load/data_heavy-load
 
 ![image](https://user-images.githubusercontent.com/52474199/216037382-b0a9f6b9-18c3-4fcc-a2af-8f4185e6ebbb.png)
 
-
+--46,746,608
 ### Create a table
 ```sql
 create or replace TABLE MEASUREMENT_AMP_2 (
@@ -53,14 +53,29 @@ create or replace TABLE MEASUREMENT_AMP_2 (
 ;
 
 ```
-```sql
 
+```sql
 COPY INTO "SEQ"."SEQ"."MEASUREMENT_AMP_2" 
      FROM '@new_stage/structured-csv-data/data-heavy-load/' 
      FILE_FORMAT = (format_name = 'MY_CSV_FORMAT') ON_ERROR = 'ABORT_STATEMENT' PURGE = FALSE;
+
+```
+### 적재 소요시간
+![image](https://user-images.githubusercontent.com/52474199/216042864-3f247430-7351-492c-aebd-88319a6d9023.png)
+
+### 조회 소요시간
+![image](https://user-images.githubusercontent.com/52474199/216043025-61e116de-7a73-4e30-a62b-63fea155f021.png)
+
+
+```sql
+COPY INTO "SEQ"."SEQ"."MEASUREMENT_AMP_1" 
+     FROM '@new_stage/structured-csv-data/data-heavy-load/' 
+     FILE_FORMAT = (format_name = 'NULLABLE_CSV_FORMAT') ON_ERROR = 'ABORT_STATEMENT' PURGE = FALSE;
 
 ```
 
 
 ![image](https://user-images.githubusercontent.com/52474199/216040103-5d1c5114-5ec8-4e3f-bcf7-6b132000c8f6.png)
 ![image](https://user-images.githubusercontent.com/52474199/216040237-3d00ff7c-7bc0-4226-ba3b-23a0aeb813a1.png)
+
+
