@@ -1,6 +1,6 @@
 ## 추가 검증용
 
-### 1. 테이블 3개 생성
+### 1. INT. 테이블 생성
 ```sql
 create or replace TABLE "INT_CPR_3" (
 	"작성시간" VARCHAR(20),
@@ -35,7 +35,8 @@ create or replace TABLE "INT_CPR_3" (
 ;
 ```
 
-2. Stage, Fileformat 생성 후 적재
+### 2. Stage, Fileformat 생성
+
 ```sql
 
 CREATE STAGE hallym_stage URL = 's3://hallym-uni-poc-bucket' CREDENTIALS = (AWS_KEY_ID = '==' AWS_SECRET_KEY = '==');
@@ -52,7 +53,7 @@ CREATE FILE FORMAT NULLABLE_CSV_FORMAT
    DATE_FORMAT = 'AUTO' TIMESTAMP_FORMAT = 'AUTO' NULL_IF = ('NULL');
    
 ```
-3. Load
+### 3. Load
 ```sql
 copy into INT_CPR_1
   from @DEMO2.DEMO2.hallym_stage/structured-csv-data/CPR-AI-predict/20220725v2_CPR_split_3.csv
@@ -68,13 +69,13 @@ copy into INT_CPR_3
   
 ```
 
-3. amplify * 128배
+### 4. amplify * 128배
 ```sql
 --한림대 : 11577472
 --울산대 강릉아산 : 8960000
 insert into INT_CPR_3 select * from INT_CPR_3;
 ```
-5. Unload data to S3
+### 5. Unload data to S3
 
 ```
 copy into @hallym.hallym.new_stage/structured-csv-data/ulsan-data-heavy-load/data_heavy-load
@@ -89,7 +90,7 @@ copy into @hallym.hallym.new_stage/structured-csv-data/hallym-data-heavy-load/da
      from (select * from INT_CPR_1) 
      file_format = (format_name = 'NULLABLE_CSV_FORMAT');
 ```
-6. make a ext table
+### 6. make a ext table
 
 ```sql
 
@@ -199,14 +200,14 @@ copy into @hallym.hallym.new_stage/structured-csv-data/hallym-data-heavy-load/da
   file_format = NULLABLE_CSV_FORMAT;
 
 ```
-9. 건수 확인
+### 7. 건수 확인
 
 ```sql
 select count(*) from EXT_CPR_1;
 select count(*) from EXT_CPR_2;
 select count(*) from EXT_CPR_3;
 ```
-11. 결과 확인 (INT vs EXT)
+### 8. 결과 확인 (INT vs EXT)
 ```sql
 select * from "DEMO2"."DEMO2"."INT_CPR_1"
 union all 
@@ -226,8 +227,18 @@ select * from "DEMO2"."DEMO2"."EXT_CPR_3";
 ```
 ![image](https://user-images.githubusercontent.com/52474199/216297610-77eccfcc-afd0-4f1d-a42d-0c9947254d16.png)
 
-12. conclusion
+### 9. Conclusion
 > internal table 이 Exteranl table 대비 약 9.8배 속도가 빠름
 
 
-14. 
+### 10. 추가 자료(WH 사이즈는 XS, Cluseter 1개)
+
+### Int. vs Ext (3.7배)
+![image](https://user-images.githubusercontent.com/52474199/216299310-ad39b86a-2bef-4ec2-9202-d4ae41c3cfdf.png)
+
+#### Int. Vs Ext
+![image](https://user-images.githubusercontent.com/52474199/216299354-2f11e743-d7db-4f5a-997d-b72f6b040a20.png)
+
+#### Data 10배 증가시 조회속도는 7배로 상대적으로 성능은 유지
+![image](https://user-images.githubusercontent.com/52474199/216299476-abe1312e-ddab-4acd-8f3a-520740def4df.png)
+
