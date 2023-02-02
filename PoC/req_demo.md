@@ -239,6 +239,6 @@ select * from "DEMO2"."DEMO2"."EXT_CPR_3";
 ### Int. Vs Ext (3.5배 차이)
 ![image](https://user-images.githubusercontent.com/52474199/216299354-2f11e743-d7db-4f5a-997d-b72f6b040a20.png)
 
-### Data 10배 증가시 조회속도는 7배로 상대적으로 성능은 유지
+### Row Count 10배 증가 Vs 조회속도는 7배 차이
 ![image](https://user-images.githubusercontent.com/52474199/216299476-abe1312e-ddab-4acd-8f3a-520740def4df.png)
 
