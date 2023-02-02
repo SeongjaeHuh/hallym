@@ -227,4 +227,7 @@ select * from "DEMO2"."DEMO2"."EXT_CPR_3";
 ![image](https://user-images.githubusercontent.com/52474199/216297610-77eccfcc-afd0-4f1d-a42d-0c9947254d16.png)
 
 12. conclusion
-13. 
+> internal table 이 Exteranl table 대비 약 9.8배 속도가 빠름
+
+
+14. 
