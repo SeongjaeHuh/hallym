@@ -77,7 +77,7 @@ insert into INT_CPR_3 select * from INT_CPR_3;
 ```
 ### 5. Unload data to S3
 
-```
+```sql
 copy into @hallym.hallym.new_stage/structured-csv-data/ulsan-data-heavy-load/data_heavy-load
      from (select * from INT_CPR_3) 
      file_format = (format_name = 'NULLABLE_CSV_FORMAT');
