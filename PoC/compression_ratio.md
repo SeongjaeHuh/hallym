@@ -2,4 +2,4 @@
 
 ![image](https://user-images.githubusercontent.com/52474199/216513063-8182c3de-a014-4027-9e25-4c5875ebb36b.png)
 
-16,900 KB ->  823 KB = 약 95% 압축
+6,600 KB ->  823 KB = 약 87.5% 압축
