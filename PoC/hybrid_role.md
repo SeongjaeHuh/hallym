@@ -77,8 +77,8 @@ grant monitor on warehouse GUEST_WH to role hybrid_dev;
 
 ## User 생성
 ```
---신규 user를 user_hybrid_admin 이름으로 생성, 초기 패스워드는 'Qwer1234', 최초 로그인시 바꾸도록 설정
-create user user_hybrid password = 'Qwer!1212' must_change_password = false;
+--신규 user를 ****** 이름으로 생성, 초기 패스워드는 '*******', 최초 로그인시 바꾸도록 설정
+create user user_hybrid password = '*******' must_change_password = true;
 
 --user_hybrid_admin에 hybrid Role을 부여 (hybrid, hybrid_dev 중 택 1)
 grant role hybrid_dev to user user_hybrid;
