@@ -1,5 +1,8 @@
 ## 1. 공통
+
+![125+Table+Privileges](https://user-images.githubusercontent.com/52474199/216484594-f6c62bdf-6134-4193-a203-72dc4cee4c80.png)
 ```sql
+
 -- Role : hybrid, hybrid_dev
 -- User : user_hybrid_admin, user_hybrid_dev
 
