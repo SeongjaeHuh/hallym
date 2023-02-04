@@ -15,10 +15,9 @@ select * from snowflake.account_usage.grants_to_users limit 10;
 
 ```
 select * from "SNOWFLAKE"."ACCOUNT_USAGE"."GRANTS_TO_ROLES" where grantee_name IN (
-select ROLE from snowflake.account_usage.grants_to_users where GRANTEE_NAME = 'USER_IN_HALF');
+select ROLE from snowflake.account_usage.grants_to_users where GRANTEE_NAME = 'USER_IN_HALF') and GRANTED_ON = 'TABLE';
 ```
-
-![image](https://user-images.githubusercontent.com/52474199/216777256-3202173c-8c9e-4443-ae23-fdf2d9db1046.png)
+![image](https://user-images.githubusercontent.com/52474199/216777538-cd869fc2-fe38-4fc3-a60f-62c6397c7ac3.png)
 
 ![image](https://user-images.githubusercontent.com/52474199/216777471-e160a772-7188-4be5-bb69-abc8b2887bb5.png)
 
