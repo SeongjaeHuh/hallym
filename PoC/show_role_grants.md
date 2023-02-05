@@ -14,8 +14,23 @@ select * from snowflake.account_usage.grants_to_users limit 10;
 ## 3. How to show which user have a privilege in the object?
 
 ```
-select * from "SNOWFLAKE"."ACCOUNT_USAGE"."GRANTS_TO_ROLES" where grantee_name IN (
-select ROLE from snowflake.account_usage.grants_to_users where GRANTEE_NAME = 'USER_IN_HALF') and GRANTED_ON = 'TABLE';
+select * 
+  from "SNOWFLAKE"."ACCOUNT_USAGE"."GRANTS_TO_ROLES" 
+ where grantee_name IN (
+                         select ROLE 
+                           from snowflake.account_usage.grants_to_users 
+                          where GRANTEE_NAME = 'USER_IN_HALF'
+                        ) 
+  and GRANTED_ON = 'TABLE';
+```
+```
+SELECT * 
+  FROM "SNOWFLAKE"."ACCOUNT_USAGE"."GRANTS_TO_ROLES" A
+        INNER JOIN
+        "SNOWFLAKE"."ACCOUNT_USAGE"."GRANTS_TO_USERS" B
+        ON A.GRANTEE_NAME = B.ROLE
+ WHERE B.GRANTEE_NAME = 'USER_IN_HALF' 
+   AND GRANTED_ON = 'TABLE';
 ```
 ![image](https://user-images.githubusercontent.com/52474199/216777538-cd869fc2-fe38-4fc3-a60f-62c6397c7ac3.png)
 
