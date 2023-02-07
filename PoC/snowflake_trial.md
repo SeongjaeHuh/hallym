@@ -177,6 +177,9 @@ CREATE FILE FORMAT [DB명].[SCHEMA_명].[FILE_FORMAT명]
 
 ![image](https://user-images.githubusercontent.com/52474199/177914907-fd64dac4-e92d-4c02-a565-7b2571c81a8d.png)
 
+![image](https://user-images.githubusercontent.com/52474199/217207935-a7a385d0-ef43-45bd-ad3c-26fb1754e272.png)
+
+
 ## 2. LAB. CACHE
 
 -- WAREHOUSE 및 스키마 설정 
