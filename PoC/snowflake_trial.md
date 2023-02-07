@@ -404,7 +404,7 @@ SELECT * FROM TABLE(RESULT_SCAN(LAST_QUERY_ID()));
 
 -- system function (스노우플레이크를 사용하기 위한 허용 IP, port 정보)
 ```
-SELECT SYSTEM$WHITELIST();
+SELECT SYSTEM$ALLOWLIST();
 ```
 ![image](https://user-images.githubusercontent.com/52474199/177479809-7706989e-eef9-4c7e-b513-09312def3f24.png)
 
