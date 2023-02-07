@@ -571,3 +571,8 @@ CALL STPROC1(3.14::FLOAT);
 SELECT * FROM STPROC_TEST_TABLE1;
 ```
 ![image](https://user-images.githubusercontent.com/52474199/177303758-77d4e61c-a9c0-4301-9e87-f95fa630c35e.png)
+
+
+
+
+![image](https://user-images.githubusercontent.com/52474199/217226996-9fcfc65e-49f4-4b05-bcd8-ecc40ffbd543.png)
