@@ -9,9 +9,6 @@ user##/Abc123!@
 https://ldpolhd-ra71887.snowflakecomputing.com/
 bit.ly/3X4rKUB
 
---lab 실습 참고
-https://bit.ly/3yWT5zu
-
 --load sample
 https://drive.google.com/file/d/1orzu44Gb6lorBxqVaTIeG6zBov3O-TLx/view?usp=sharing
 
