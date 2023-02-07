@@ -151,7 +151,7 @@ plant_name varchar(25)
 
 ```
 2. Load 할 file 선택 (https://bit.ly/3RHDM5w)
-[로컬 다운로드](https://bit.ly/3RHDM5w)
+> [로컬 다운로드](https://bit.ly/3RHDM5w)
 
 
 3. file format 생성
