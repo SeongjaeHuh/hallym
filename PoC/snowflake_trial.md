@@ -3,22 +3,18 @@
 
 ```
 --구글 스프레드 sheet
-https://docs.google.com/spreadsheets/d/1oBrxSSVJLqSxSkC30FBFfpZ38H9Nc2dL5cEeFw6p7Ck/edit?usp=sharing
-https://bit.ly/3RnEdRE
+https://bit.ly/3YePYNp
 
 user##/Abc123!@
 https://ldpolhd-ra71887.snowflakecomputing.com/
 bit.ly/3X4rKUB
 
 --lab 실습 참고
-https://github.com/SeongjaeHuh/smilegate_lab/blob/d6d728792fc7a6c588b3ecc285f75da48b8a6e0a/lab_dev.md
 https://bit.ly/3yWT5zu
 
 --load sample
 https://drive.google.com/file/d/1orzu44Gb6lorBxqVaTIeG6zBov3O-TLx/view?usp=sharing
 
--- github
-https://github.com/SeongjaeHuh/snowflake/blob/c055fc33fcdc4408beee1e311d12cf471c620777/97_lab_dev.md
 ```
 ### 계정생성
 ```
