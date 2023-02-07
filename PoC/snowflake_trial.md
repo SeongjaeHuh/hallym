@@ -136,6 +136,7 @@ ALTER WAREHOUSE [username]_WH SUSPEND; /*RESUME (시작)*/
 
 ## 1. LAB. LOADING
 
+1. table 생성
 ```
 use warehouse [username]_wh; -- 생성한 웨어하우스 입력
 
@@ -148,6 +149,18 @@ plant_name varchar(25)
 , root_depth_code varchar(1)
 );
 
+```
+2. Load 할 file 선택 ([로컬로 다운로드](https://bit.ly/3RHDM5w))
+[로컬 다운로드](https://bit.ly/3RHDM5w)
+
+
+3. file format 생성
+```
+create FILE FORMAT "USER01"."PUBLIC".VEGE_FF 
+   SET COMPRESSION = 'AUTO' FIELD_DELIMITER = ',' RECORD_DELIMITER = '\n' 
+       SKIP_HEADER = 1 FIELD_OPTIONALLY_ENCLOSED_BY = '\042' TRIM_SPACE = FALSE 
+       ERROR_ON_COLUMN_COUNT_MISMATCH = TRUE 
+       ESCAPE = 'NONE' ESCAPE_UNENCLOSED_FIELD = '\134' DATE_FORMAT = 'AUTO' TIMESTAMP_FORMAT = 'AUTO' NULL_IF = ('\\N');
 ```
 
 --제공된 txt파일을 data load wizard를 통해 로딩(pdf 자료 참고)
