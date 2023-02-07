@@ -413,7 +413,7 @@ SELECT SYSTEM$ALLOWLIST();
 SELECT VALUE:type AS type,
        VALUE:host AS host,
        VALUE:port AS port
-FROM TABLE(FLATTEN(INPUT => PARSE_JSON(system$whitelist())));
+FROM TABLE(FLATTEN(INPUT => PARSE_JSON(SYSTEM$ALLOWLIST())));
 ```
 ![image](https://user-images.githubusercontent.com/52474199/177479874-ff08cdeb-c73f-47ba-9c56-d6f702c090db.png)
 
