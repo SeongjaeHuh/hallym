@@ -140,10 +140,10 @@ ALTER WAREHOUSE [username]_WH SUSPEND; /*RESUME (시작)*/
 ```
 use warehouse [username]_wh; -- 생성한 웨어하우스 입력
 
-CREATE DATABASE [username]_vege_DB;
+CREATE DATABASE [username]_VEGE_DB;
 use schema "[username]"."PUBLIC";
 
-create table vegetable_details_sfuser
+create table vegetable_details
 (
 plant_name varchar(25)
 , root_depth_code varchar(1)
