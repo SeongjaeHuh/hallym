@@ -1,3 +1,5 @@
+## TOTAL : 48.53
+
 ## HALLYM
 CREDIT : 47.01
 
@@ -16,3 +18,5 @@ CREDIT : 1.01
 CREDIT : 0.51
 ![image](https://user-images.githubusercontent.com/52474199/219313557-fc39daab-41b5-4262-a2ee-6732b83ba026.png)
 ![image](https://user-images.githubusercontent.com/52474199/219313613-62af73b4-f048-4cb4-952e-d085e1a3069e.png)
+
+
