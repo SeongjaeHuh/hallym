@@ -1,4 +1,4 @@
-## TOTAL : 48.53
+## TOTAL : 48.53 (Credits) * 5.5(USD) * 1,250(KRW) = 333.643
 
 ## HALLYM
 CREDIT : 47.01
