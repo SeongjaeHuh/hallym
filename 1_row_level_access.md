@@ -8,13 +8,9 @@
 
 ### Create Sample Table
 
-```
-/*
+```sql
 create database row_access_policy;
-use database row_access_policy;
-create schema row_access_policy;
-use schema row_access_policy;
-*/
+create schema row_access_policy.row_access_policy;
 
 CREATE TABLE sales_raw (sales_info string, region string); 
 INSERT INTO sales_raw VALUES ('test1', 'EU'), ('test2', 'US'), ('test3', 'UK'), ('test4', 'KR'), ('test5', 'JP'); 
@@ -28,7 +24,7 @@ INSERT INTO sales_raw VALUES ('test1', 'EU'), ('test2', 'US'), ('test3', 'UK'), 
 ### Step 1: Create a Row-Level Security Configuration Table
 > We are creating a table that will contain the mapping of roles to regions.
 
-```
+```sql
 CREATE TABLE sales_entitlements (role_entitled string, region string); 
 INSERT INTO sales_entitlements VALUES ('SALES_EU', 'EU'), ('SALES_US', 'US'), ('SALES_UK', 'UK'), ('SALES_KR', 'KR'), ('SALES_JP', 'JP');
 ```
@@ -39,7 +35,7 @@ INSERT INTO sales_entitlements VALUES ('SALES_EU', 'EU'), ('SALES_US', 'US'), ('
 > In Role SALES_ADMIN, they will see all sales, regardless of region.  
 > However, other roles will be looked up in the mapping table, to check if the current role can view data from the specific region:
 
-```
+```sql
 CREATE ROW ACCESS POLICY regional_access AS (region_filter VARCHAR) 
  RETURNS BOOLEAN -> CURRENT_ROLE() = 'SALES_ADMIN' 
  OR EXISTS (
@@ -52,13 +48,19 @@ CREATE ROW ACCESS POLICY regional_access AS (region_filter VARCHAR)
 ### Step 3: Apply the Access Policy.
 > The regional_access policy apply on the region column of sales_raw.
 
-```
+```sql
 ALTER TABLE sales_raw ADD ROW ACCESS POLICY regional_access ON (region);
 ```
 
+### cf. unset row access policy
+```sql
+ALTER TABLE sales_raw drop ROW ACCESS POLICY regional_access;
+```
+
+
 ### Step 4: Create & Granting Permissions on Role
 
-```
+```sql
 use role accountadmin;
 
 -- create new roles
@@ -104,21 +106,21 @@ grant usage on warehouse compute_wh to role SALES_US;
 
 ### Results
 > SALES_ADMIN, they will see all sales, regardless of region. 
-```
+```sql
 USE ROLE SALES_ADMIN;
 SELECT SALES_INFO, REGION FROM SALES_RAW;
 ```
 ![image](https://user-images.githubusercontent.com/52474199/184526832-a9350566-1765-47de-b74b-7f78887cb6fe.png)
 
 > the SALES_EU role can view data from the EU region.
-```
+```sql
 USE ROLE SALES_EU;
 SELECT SALES_INFO, REGION FROM SALES_RAW;
 ```
 ![image](https://user-images.githubusercontent.com/52474199/184526858-375bce49-2923-4630-96b2-1808af8bce8e.png)
 
 > the SALES_US role can view data from the US region.
-```
+```sql
 USE ROLE SALES_US;
 SELECT SALES_INFO, REGION FROM SALES_RAW;
 ```
