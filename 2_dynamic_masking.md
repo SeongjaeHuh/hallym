@@ -96,9 +96,20 @@ alter table if exists EMPLOYEES modify column position set masking policy positi
 alter table if exists EMPLOYEES modify column userpassword set masking policy userpassword_mask;
 alter table if exists EMPLOYEES modify column fullname set masking policy fullname_mask;
 ```
+
+### (cf. unset masking policy and drop policy)
 ```sql
 -- unset masking policy
+alter table if exists EMPLOYEES modify column email UNSET masking policy;
 alter table if exists EMPLOYEES modify column position UNSET masking policy;
+alter table if exists EMPLOYEES modify column userpassword UNSET masking policy;
+alter table if exists EMPLOYEES modify column fullname UNSET masking policy;
+
+--drop masking policy
+drop masking policy email_mask;
+drop masking policy position_mask;
+drop masking policy userpassword_mask;
+drop masking policy fullname_mask;
 ```
 
 ### Step 4: Create & Granting Permissions on Role (Analyst, Support)
