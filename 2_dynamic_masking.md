@@ -96,6 +96,11 @@ alter table if exists EMPLOYEES modify column position set masking policy positi
 alter table if exists EMPLOYEES modify column userpassword set masking policy userpassword_mask;
 alter table if exists EMPLOYEES modify column fullname set masking policy fullname_mask;
 ```
+```sql
+-- unset masking policy
+alter table if exists EMPLOYEES modify column position UNSET masking policy;
+```
+
 ### Step 4: Create & Granting Permissions on Role (Analyst, Support)
 ```sql
 CREATE ROLE ANALYST;
