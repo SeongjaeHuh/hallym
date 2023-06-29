@@ -37,7 +37,8 @@ INSERT INTO sales_entitlements VALUES ('SALES_EU', 'EU'), ('SALES_US', 'US'), ('
 
 ```sql
 CREATE or replace ROW ACCESS POLICY regional_access AS (region_filter VARCHAR) 
- RETURNS BOOLEAN -> CURRENT_ROLE() = 'SALES_ADMIN' 
+ /* RETURNS BOOLEAN -> CURRENT_ROLE() = 'SALES_ADMIN' */
+ RETURNS BOOLEAN -> CURRENT_ROLE() IN ('SALES_ADMIN', 'ACCOUNTADMIN')
  OR EXISTS (
              SELECT 1 FROM sales_entitlements   
               WHERE region = region_filter 
