@@ -9,10 +9,10 @@
 ### Create Sample Table
 
 ```sql
-create database row_access_policy;
-create schema row_access_policy.row_access_policy;
+create or replace database row_access_policy;
+create or replace schema row_access_policy.row_access_policy;
 
-CREATE TABLE sales_raw (sales_info string, region string); 
+CREATE or replace TABLE sales_raw (sales_info string, region string); 
 INSERT INTO sales_raw VALUES ('test1', 'EU'), ('test2', 'US'), ('test3', 'UK'), ('test4', 'KR'), ('test5', 'JP'); 
 ```
 
@@ -25,7 +25,7 @@ INSERT INTO sales_raw VALUES ('test1', 'EU'), ('test2', 'US'), ('test3', 'UK'), 
 > We are creating a table that will contain the mapping of roles to regions.
 
 ```sql
-CREATE TABLE sales_entitlements (role_entitled string, region string); 
+CREATE or replace TABLE sales_entitlements (role_entitled string, region string); 
 INSERT INTO sales_entitlements VALUES ('SALES_EU', 'EU'), ('SALES_US', 'US'), ('SALES_UK', 'UK'), ('SALES_KR', 'KR'), ('SALES_JP', 'JP');
 ```
 ![image](https://user-images.githubusercontent.com/52474199/184526100-7388e85e-e240-4938-866b-b65e67bed482.png)
@@ -36,7 +36,7 @@ INSERT INTO sales_entitlements VALUES ('SALES_EU', 'EU'), ('SALES_US', 'US'), ('
 > However, other roles will be looked up in the mapping table, to check if the current role can view data from the specific region:
 
 ```sql
-CREATE ROW ACCESS POLICY regional_access AS (region_filter VARCHAR) 
+CREATE or replace ROW ACCESS POLICY regional_access AS (region_filter VARCHAR) 
  RETURNS BOOLEAN -> CURRENT_ROLE() = 'SALES_ADMIN' 
  OR EXISTS (
              SELECT 1 FROM sales_entitlements   
@@ -65,9 +65,9 @@ drop ROW ACCESS POLICY regional_access;
 use role accountadmin;
 
 -- create new roles
-CREATE ROLE SALES_ADMIN;
-CREATE ROLE SALES_EU;
-CREATE ROLE SALES_US;
+CREATE or replace ROLE SALES_ADMIN;
+CREATE or replace ROLE SALES_EU;
+CREATE or replace ROLE SALES_US;
 
 -- grant role to the_user_we_want_to_assign
 GRANT ROLE SALES_ADMIN TO USER SFADMIN;
