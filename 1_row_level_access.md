@@ -15,6 +15,7 @@ create or replace schema row_access_policy.row_access_policy;
 CREATE or replace TABLE sales_raw (sales_info string, region string); 
 INSERT INTO sales_raw VALUES ('test1', 'EU'), ('test2', 'US'), ('test3', 'UK'), ('test4', 'KR'), ('test5', 'JP'); 
 ```
+![image](https://github.com/SeongjaeHuh/hallym/assets/52474199/99365c50-300d-4995-85e6-46c066cb271e)
 
 ![image](https://user-images.githubusercontent.com/52474199/184526119-b24349bf-bdda-444b-aebf-945135568b3b.png)
 
@@ -28,6 +29,8 @@ INSERT INTO sales_raw VALUES ('test1', 'EU'), ('test2', 'US'), ('test3', 'UK'), 
 CREATE or replace TABLE sales_entitlements (role_entitled string, region string); 
 INSERT INTO sales_entitlements VALUES ('SALES_EU', 'EU'), ('SALES_US', 'US'), ('SALES_UK', 'UK'), ('SALES_KR', 'KR'), ('SALES_JP', 'JP');
 ```
+![image](https://github.com/SeongjaeHuh/hallym/assets/52474199/fdccdf05-4ee7-4c5d-b954-70f9992b46c5)
+
 ![image](https://user-images.githubusercontent.com/52474199/184526100-7388e85e-e240-4938-866b-b65e67bed482.png)
 
 
@@ -45,6 +48,8 @@ CREATE or replace ROW ACCESS POLICY regional_access AS (region_filter VARCHAR)
                 AND role_entitled = CURRENT_ROLE()
             );
 ```
+![image](https://github.com/SeongjaeHuh/hallym/assets/52474199/62595878-6a22-45a1-b6d5-b4142982bc14)
+
 
 ### Step 3: Apply the Access Policy.
 > The regional_access policy apply on the region column of sales_raw.
@@ -61,6 +66,7 @@ drop ROW ACCESS POLICY regional_access;
 
 
 ### Step 4: Create & Granting Permissions on Role
+![image](https://github.com/SeongjaeHuh/hallym/assets/52474199/df51210b-8d48-4c45-aed4-4e0b2c23159c)
 
 ```sql
 use role accountadmin;
