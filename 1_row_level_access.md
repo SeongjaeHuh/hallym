@@ -55,6 +55,7 @@ ALTER TABLE sales_raw ADD ROW ACCESS POLICY regional_access ON (region);
 ### cf. unset row access policy
 ```sql
 ALTER TABLE sales_raw drop ROW ACCESS POLICY regional_access;
+drop ROW ACCESS POLICY regional_access;
 ```
 
 
