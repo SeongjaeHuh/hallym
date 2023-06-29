@@ -66,8 +66,6 @@ drop ROW ACCESS POLICY regional_access;
 
 
 ### Step 4: Create & Granting Permissions on Role
-![image](https://github.com/SeongjaeHuh/hallym/assets/52474199/df51210b-8d48-4c45-aed4-4e0b2c23159c)
-
 ```sql
 use role accountadmin;
 
@@ -109,8 +107,8 @@ grant select on future views in database row_access_policy to role SALES_ADMIN;
 grant usage on warehouse compute_wh to role SALES_ADMIN;
 grant usage on warehouse compute_wh to role SALES_EU;
 grant usage on warehouse compute_wh to role SALES_US;
-
 ```
+![image](https://github.com/SeongjaeHuh/hallym/assets/52474199/df51210b-8d48-4c45-aed4-4e0b2c23159c)
 
 ### Results
 > SALES_ADMIN, they will see all sales, regardless of region. 
