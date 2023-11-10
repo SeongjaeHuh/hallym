@@ -102,4 +102,5 @@ select * from mytable;
 
 
 ### 9. Sync. Process
-![Uploading ellon.drawio.png…]()
+![ellon drawio](https://github.com/SeongjaeHuh/hallym/assets/52474199/c1c08b04-85c2-410b-9ce7-95dacc26724c)
+
