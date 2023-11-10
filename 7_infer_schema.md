@@ -101,5 +101,5 @@ select * from mytable;
 ![image](https://github.com/SeongjaeHuh/snowflake/assets/52474199/7c8be86b-c28e-417f-82d6-62cbf44654cd)
 
 
-
-
+### 9. Sync. Process
+![Uploading ellon.drawio.png…]()
