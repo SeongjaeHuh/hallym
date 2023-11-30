@@ -12,7 +12,7 @@ CREATE ROLE db_dr_adm;
 
 --functional role
 CREATE ROLE analyst; --r
-CREATE ROLE dev; --rw
+CREATE ROLE elt; --rw
 CREATE ROLE dba; --adm
 
 --grant to sysadmin 
