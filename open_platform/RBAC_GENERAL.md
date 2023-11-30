@@ -12,7 +12,7 @@ CREATE ROLE db_dr_adm;
 
 --functional role
 CREATE ROLE analyst; --r
-CREATE ROLE elt; --rw
+CREATE ROLE elt; --rw
 CREATE ROLE dba; --adm
 
 --grant to sysadmin 
@@ -111,9 +111,8 @@ GRANT OWNERSHIP ON ALL tableS IN DATABASE [DB_NAME] TO ROLE SYSADMIN;
 select get_ddl ('table','"CRAWL"."RSN"."GOV_TEST_EPIC7_20230102"');
 ```
 
-### cf) naming rule
+### cf) naming rule(db명을 사번으로 하는 것 고려)
 ```sql
-a_[DB_NAME]_general
 a_[DB_NAME]_analyst
 a_[DB_NAME]_elt
 a_[DB_NAME]_admin
