@@ -57,8 +57,8 @@ grant usage on future schemas in database [DB_NAME] to role db_dr_r;
 GRANT USAGE ON FUTURE STAGES IN DATABASE [DB_NAME] TO ROLE db_dr_r;
 GRANT USAGE ON FUTURE FILE FORMATS IN DATABASE [DB_NAME] TO ROLE db_dr_r;
 
-grant select on future tables in database [DB_NAME] to role read;
-grant select on future views in database [DB_NAME] to role read;
+grant select on future tables in database [DB_NAME] to role db_dr_r;
+grant select on future views in database [DB_NAME] to role db_dr_r;
 ```
 
 ### 4.(1) Grant **READ_WRITE** permissions on database [DB_NAME] to [ROLE_NAME] role.
