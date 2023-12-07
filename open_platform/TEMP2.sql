@@ -13,8 +13,6 @@ drop role  f_sc_TEMP_TEMP_2_adm;
 
 USE ROLE USERADMIN;
 
-grant role A_SC_TEMP_TEMP_elt to user sfadmin;
-
 CREATE or replace ROLE A_SC_TEMP_TEMP_2_DBA;
 CREATE or replace  ROLE A_SC_TEMP_TEMP_2_ELT;
 CREATE or replace  ROLE A_SC_TEMP_TEMP_2_ANALYST;
