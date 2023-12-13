@@ -849,6 +849,13 @@ create table khns (
 use database hallym; /* use schema hallym.public; */
 create or replace stage khns;
 ```
+```sql
+
+--STAGE 생성 (2023-11-15)
+CREATE OR REPLACE STAGE AWS_S3_STAGE
+STORAGE_INTEGRATION = aws_s3_int
+URL = 's3://hallym-snowflake-stage/'
+```
 
 ```bash
 put file:///Users/a09423/Downloads/khns_2021_utf8.txt @khns/;
