@@ -887,6 +887,12 @@ copy into @AWS_S3_STAGE/KHNS/ from KHNS file_format=Hallym.public.tsv;
 ```
 ![스크린샷 2023-12-14 오전 11 24 40](https://github.com/SeongjaeHuh/hallym/assets/52474199/589d3def-9755-4d4e-8dd5-965a0d37c5cd)
 
+```bash
+list @aws_s3_stage/KHNS/;
+```
+![스크린샷 2023-12-14 오전 11 28 03](https://github.com/SeongjaeHuh/hallym/assets/52474199/02f25f40-ad9e-43b9-b6e7-8a9035a53202)
+
+
 ## 5. select data
 
 ```sql
