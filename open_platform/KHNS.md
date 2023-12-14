@@ -8,7 +8,7 @@ CREATE OR REPLACE STAGE AWS_S3_STAGE
 STORAGE_INTEGRATION = aws_s3_int
 URL = 's3://hallym-snowflake-stage/'
 ```
-#### (2) put data file
+#### (2) put data file (internal stage에서만 가능)
 ```
 HALLYM.HALLYM>put file://C:\Users\Heo\Downloads\order_data_10.csv @hallym_s3_stage;
 ```
