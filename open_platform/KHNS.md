@@ -96,9 +96,43 @@ create table KHNS_INFERED
 ```sql
 desc table mytable;
 ```
+```
++------+-------------------+--------+-------+---------+-------------+------------+-------+------------+---------+-------------+
+| name | type              | kind   | null? | default | primary key | unique key | check | expression | comment | policy name |
+|------+-------------------+--------+-------+---------+-------------+------------+-------+------------+---------+-------------|
+| c1   | VARCHAR(16777216) | COLUMN | Y     | NULL    | N           | N          | NULL  | NULL       | NULL    | NULL        |
+| c2   | VARCHAR(16777216) | COLUMN | Y     | NULL    | N           | N          | NULL  | NULL       | NULL    | NULL        |
+| c3   | VARCHAR(16777216) | COLUMN | Y     | NULL    | N           | N          | NULL  | NULL       | NULL    | NULL        |
+| c4   | NUMBER(4,0)       | COLUMN | Y     | NULL    | N           | N          | NULL  | NULL       | NULL    | NULL        |
+| c5   | NUMBER(2,0)       | COLUMN | Y     | NULL    | N           | N          | NULL  | NULL       | NULL    | NULL        |
+| c6   | NUMBER(1,0)       | COLUMN | Y     | NULL    | N           | N          | NULL  | NULL       | NULL    | NULL        |
+| c836 | NUMBER(1,0)       | COLUMN | Y     | NULL    | N           | N          | NULL  | NULL       | NULL    | NULL        |
+| c837 | NUMBER(2,0)       | COLUMN | Y     | NULL    | N           | N          | NULL  | NULL       | NULL    | NULL        |
+| c838 | NUMBER(1,0)       | COLUMN | Y     | NULL    | N           | N          | NULL  | NULL       | NULL    | NULL        |
++------+-------------------+--------+-------+---------+-------------+------------+-------+------------+---------+-------------+
+838 Row(s) produced. Time Elapsed: 0.284s
+
+```
 
 ```sql
 select get_ddl('table', 'mytable');
+```
+```
++----------------------------------------+                                      
+| GET_DDL('TABLE', 'KHNS_INFERED')       |
+|----------------------------------------|
+| create or replace TABLE KHNS_INFERED ( |
+| 	"c1" VARCHAR(16777216),                                                                                 |
+| 	"c2" VARCHAR(16777216),                                                                                 |
+| 	"c3" VARCHAR(16777216),                                                                                 |
+| 	"c4" NUMBER(4,0),                                                                                 |
+| 	"c5" NUMBER(2,0),                                                                                 |
+| 	"c6" NUMBER(1,0),                                                                                 |
+| 	"c837" NUMBER(2,0),                                                                                 |
+| 	"c838" NUMBER(1,0)                                                                                 |
+| );                                     |
++----------------------------------------+
+1 Row(s) produced. Time Elapsed: 0.536s
 ```
 
 ### 7. Load the CSV file using MATCH_BY_COLUMN_NAME
