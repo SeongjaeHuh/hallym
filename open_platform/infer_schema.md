@@ -26,13 +26,12 @@ FILE_FORMAT = CSV_FORMAT;
 ```
 HALLYM.HALLYM>put file://C:\Users\Heo\Downloads\order_data_10.csv @hallym_s3_stage;
 ```
-![image](https://github.com/SeongjaeHuh/snowflake/assets/52474199/aa395212-c30e-4876-bc9c-e4fb487b6778)
-
+![280458525-aa395212-c30e-4876-bc9c-e4fb487b6778](https://github.com/SeongjaeHuh/hallym/assets/52474199/89f2861d-4e4b-4739-b776-8326bc455965)
 
 ```sql
 list @hallym_s3_stage
 ```
-![image](https://github.com/SeongjaeHuh/snowflake/assets/52474199/3a38cbcd-8501-4f9d-b478-cfca612e5171)
+![280458592-3a38cbcd-8501-4f9d-b478-cfca612e5171](https://github.com/SeongjaeHuh/hallym/assets/52474199/e0346709-9798-4edc-b5fb-a4a8473011e1)
 
 
 
@@ -55,7 +54,8 @@ SELECT *
 );
 
 ```
-![image](https://github.com/SeongjaeHuh/snowflake/assets/52474199/a0446630-0ffc-4c86-889b-75093725e457)
+![280446710-a0446630-0ffc-4c86-889b-75093725e457](https://github.com/SeongjaeHuh/hallym/assets/52474199/d5463bc9-d011-49ec-b7be-0a0d048f6e57)
+
 
 ### 5. crate table from infer schema
 ```sql
@@ -74,7 +74,9 @@ create table mytable
 ```sql
 desc table mytable;
 ```
-![image](https://github.com/SeongjaeHuh/snowflake/assets/52474199/874707a6-d97b-48a9-8150-69e85476c27d)
+![280447933-874707a6-d97b-48a9-8150-69e85476c27d](https://github.com/SeongjaeHuh/hallym/assets/52474199/b88cddb8-80ce-413c-ab0d-443f201ee730)
+
+
 
 
 ```sql
@@ -89,7 +91,8 @@ create or replace TABLE MYTABLE ( "order_id" NUMBER(2,0), "order_date" DATE, "or
 ```sql
 COPY into mytable from @MY_STAGE/ FILE_FORMAT = (FORMAT_NAME= 'my_csv_format') MATCH_BY_COLUMN_NAME=CASE_INSENSITIVE;
 ```
-![image](https://github.com/SeongjaeHuh/snowflake/assets/52474199/cd72f395-404b-4bf3-8fc3-9e1806dfc879)
+![280447729-cd72f395-404b-4bf3-8fc3-9e1806dfc879](https://github.com/SeongjaeHuh/hallym/assets/52474199/a43b43a0-a43c-439e-8980-04f6bb14e267)
+
 
 
 
@@ -98,7 +101,7 @@ COPY into mytable from @MY_STAGE/ FILE_FORMAT = (FORMAT_NAME= 'my_csv_format') M
 ```sql
 select * from mytable;
 ```
-![image](https://github.com/SeongjaeHuh/snowflake/assets/52474199/7c8be86b-c28e-417f-82d6-62cbf44654cd)
+![280447511-7c8be86b-c28e-417f-82d6-62cbf44654cd](https://github.com/SeongjaeHuh/hallym/assets/52474199/8b790f32-88c2-4c4c-85c5-cd7aeaf89a9d)
 
 
 
