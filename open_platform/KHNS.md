@@ -2,12 +2,11 @@
 
 ### 1. upload csv file to snowflake stage
 
-#### (1) create the stage
+#### (1) create the external stage
 ```sql
-CREATE OR REPLACE STAGE HALLYM_S3_STAGE;
-STORAGE_INTEGRATION = hallym_s3_int
-URL = 's3://hallym-snowflake-stage'
-FILE_FORMAT = CSV_FORMAT;
+CREATE OR REPLACE STAGE AWS_S3_STAGE
+STORAGE_INTEGRATION = aws_s3_int
+URL = 's3://hallym-snowflake-stage/'
 ```
 #### (2) put data file
 ```
@@ -34,10 +33,10 @@ list @aws_s3_stage/KHNS/;
 
 ### 2. create file format
 ```sql
-CREATE FILE FORMAT my_csv_format
-  TYPE = csv
-  PARSE_HEADER = true;
-
+CREATE OR REPLACE FILE FORMAT TSV
+	FIELD_DELIMITER = '\t'
+	TRIM_SPACE = TRUE
+;
 ```
 ### 3. schema detection (infer schema)
 
