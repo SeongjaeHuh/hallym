@@ -844,14 +844,16 @@ create table khns (
 ```
 
 ## 2. create stage & upload file
+### (1). create interanl stage
 
 ```sql
 use database hallym; /* use schema hallym.public; */
 create or replace stage khns;
 ```
-```sql
+### (2). create external stage
 
---STAGE 생성 (2023-11-15)
+```sql
+-- External STAGE 생성 (2023-11-15)
 CREATE OR REPLACE STAGE AWS_S3_STAGE
 STORAGE_INTEGRATION = aws_s3_int
 URL = 's3://hallym-snowflake-stage/'
@@ -874,9 +876,17 @@ select get_ddl('file_format','hallym.public.tsv');
 ```
 ## 4. load data into table
 
+### (1). load data
 ```sql
 copy into KHNS from @Hallym.public.khns/ file_format=Hallym.public.tsv;
 ```
+
+### (2). unload data
+```sql
+copy into @AWS_S3_STAGE/KHNS/ from KHNS file_format=Hallym.public.tsv;
+```
+![스크린샷 2023-12-14 오전 11 24 40](https://github.com/SeongjaeHuh/hallym/assets/52474199/589d3def-9755-4d4e-8dd5-965a0d37c5cd)
+
 ## 5. select data
 
 ```sql
