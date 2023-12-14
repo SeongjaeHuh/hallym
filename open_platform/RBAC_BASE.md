@@ -22,21 +22,25 @@
 3. 권한: 오브젝트에 대한 정의된 액세스 수준입니다. 여러 고유 권한을 사용하여 부여된 액세스를 세밀하게 제어할 수 있습니다.
 
 4. 사용자: 사람 또는 프로그램과의 연결 여부와 관계없이, Snowflake에서 인식하는 사용자 ID입니다.
-![334](https://github.com/SeongjaeHuh/snowflake/assets/52474199/fd4cc1e0-e371-4361-9ec5-dd87d124d016)
+
+![286442668-fd4cc1e0-e371-4361-9ec5-dd87d124d016](https://github.com/SeongjaeHuh/hallym/assets/52474199/f6a09c8a-8b87-4524-81e5-66b0527a9591)
+
 
 
 * Snowflake 모델에서는 역할에 할당된 권한을 통해 보안 오브젝트에 액세스할 수 있습니다. 그런 다음, 이러한 권한은 사용자나 다른 역할에 할당됩니다. 역할을 다른 역할에 부여하면 이 항목의 역할 계층 구조 및 권한 상속 섹션에 설명되어 있는 역할 계층이 생성됩니다.
 
- ![스크린샷 2023-11-28 오후 5 29 42](https://github.com/SeongjaeHuh/snowflake/assets/52474199/397f2cbe-d453-4d40-b2e1-f2d459a2ff6c)
+![286183086-397f2cbe-d453-4d40-b2e1-f2d459a2ff6c](https://github.com/SeongjaeHuh/hallym/assets/52474199/b6c57a31-90c0-491a-8add-311f4f856c9a)
 
 
 ### 2. 보안 오브젝트 
 
 #### (1) 오브젝트 계층 구조
  
-![스크린샷 2023-11-28 오후 5 30 56](https://github.com/SeongjaeHuh/snowflake/assets/52474199/b20ad59a-1ab0-4dd6-a5d2-d73343a0a415) 
+![286183419-b20ad59a-1ab0-4dd6-a5d2-d73343a0a415](https://github.com/SeongjaeHuh/hallym/assets/52474199/ae65336c-1bd9-4ffe-b1e8-bd7bbc5f4424)
+
 
 #### (2) 역할 계층 구조 및 권한 상속
+
 
  1) ACCOUNTADMIN (즉, 계정 관리자)
  * SYSADMIN 및 SECURITYADMIN 시스템 정의 역할을 캡슐화하는 역할입니다. 시스템의 최상위 역할이며 계정에서 제한/통제된 수의 사용자에게만 부여되어야 합니다.
@@ -56,14 +60,16 @@
  5) PUBLIC
  * 모든 사용자와 계정의 모든 역할에 자동으로 부여되는 역할입니다.
 
-![스크린샷 2023-11-28 오후 5 36 42](https://github.com/SeongjaeHuh/snowflake/assets/52474199/e79e07a0-42d0-4b32-8526-dae3de3b005c)
+![286184944-e79e07a0-42d0-4b32-8526-dae3de3b005c](https://github.com/SeongjaeHuh/hallym/assets/52474199/a6c23b0f-0d94-4528-9095-fc00b02b5134)
+
 
 ### (3) 권한 상속의 예
 * 역할 3의 권한이 역할 2에 부여되었습니다.
 * 역할 2의 권한이 역할 1에 부여되었습니다.
 * 역할 1의 권한이 사용자 1에 부여되었습니다.
 
-![스크린샷 2023-11-28 오후 5 39 35](https://github.com/SeongjaeHuh/snowflake/assets/52474199/d6d0fb31-84fa-46eb-98ff-3367188fc8fb)
+![286185722-d6d0fb31-84fa-46eb-98ff-3367188fc8fb](https://github.com/SeongjaeHuh/hallym/assets/52474199/22a2ad96-8932-4d86-8e1a-868abffb7fe6)
+
 
 * 역할 2는 권한 C를 상속합니다.
 * 역할 1은 권한 B 및 C를 상속합니다.
@@ -80,17 +86,19 @@ DB단위로 3가지 엑세스 역할로 정함
 * DB1_RO(읽기 전용 액세스용)
 * DB1_RW(읽기-쓰기 액세스용)
 * DB1_ADMIN(관리 작업용)
-  
-![스크린샷 2023-11-28 오후 5 44 02](https://github.com/SeongjaeHuh/snowflake/assets/52474199/1441920a-83c0-47ce-95f8-1fd90a74c428)
+
+![286187326-1441920a-83c0-47ce-95f8-1fd90a74c428](https://github.com/SeongjaeHuh/hallym/assets/52474199/b6606cdd-8e2a-4ef7-b8be-628b462334b1)
 
 
 ### 4. Role Hierarchy BEST PRACTICE
 
 #### (1) Example
-![스크린샷 2023-11-28 오후 6 08 38](https://github.com/SeongjaeHuh/snowflake/assets/52474199/f7bea993-5c67-4619-8c3f-bfc5ab26b8ac)
+
+![286194021-f7bea993-5c67-4619-8c3f-bfc5ab26b8ac](https://github.com/SeongjaeHuh/hallym/assets/52474199/f4fd8ba6-fc61-4429-9ef5-c1cc23928d01)
 
 #### (2) Diagram
-![스크린샷 2023-11-28 오후 6 07 25](https://github.com/SeongjaeHuh/snowflake/assets/52474199/399d9a37-4e17-4764-a82a-0c168b6388d5)
+![286193704-399d9a37-4e17-4764-a82a-0c168b6388d5](https://github.com/SeongjaeHuh/hallym/assets/52474199/8ea0d410-56b8-4ce3-a499-1d3d4244460b)
+
 
 ### 5. DDL
 #### (1) As a user administrator (user with the USERADMIN role) or another role with the CREATE ROLE privilege on the account, create the access roles and functional roles in this example:
