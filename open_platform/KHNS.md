@@ -12,7 +12,8 @@ URL = 's3://hallym-snowflake-stage/'
 ```
 HALLYM.HALLYM>put file://C:\Users\Heo\Downloads\order_data_10.csv @hallym_s3_stage;
 ```
-![image](https://github.com/SeongjaeHuh/snowflake/assets/52474199/aa395212-c30e-4876-bc9c-e4fb487b6778)
+
+![280458525-aa395212-c30e-4876-bc9c-e4fb487b6778](https://github.com/SeongjaeHuh/hallym/assets/52474199/a576b8a2-263e-42a1-baa2-2de95db610fa)
 
 #### (3) unload data file from khns table
 
