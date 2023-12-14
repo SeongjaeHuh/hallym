@@ -122,14 +122,14 @@ select get_ddl('table', 'mytable');
 | GET_DDL('TABLE', 'KHNS_INFERED')       |
 |----------------------------------------|
 | create or replace TABLE KHNS_INFERED ( |
-| 	"c1" VARCHAR(16777216),                                                                                 |
-| 	"c2" VARCHAR(16777216),                                                                                 |
-| 	"c3" VARCHAR(16777216),                                                                                 |
-| 	"c4" NUMBER(4,0),                                                                                 |
-| 	"c5" NUMBER(2,0),                                                                                 |
-| 	"c6" NUMBER(1,0),                                                                                 |
-| 	"c837" NUMBER(2,0),                                                                                 |
-| 	"c838" NUMBER(1,0)                                                                                 |
+| 	"c1" VARCHAR(16777216),              |
+| 	"c2" VARCHAR(16777216),              |
+| 	"c3" VARCHAR(16777216),              |
+| 	"c4" NUMBER(4,0),                    |
+| 	"c5" NUMBER(2,0),                    |
+| 	"c6" NUMBER(1,0),                    |
+| 	"c837" NUMBER(2,0),                  |
+| 	"c838" NUMBER(1,0)                   |
 | );                                     |
 +----------------------------------------+
 1 Row(s) produced. Time Elapsed: 0.536s
