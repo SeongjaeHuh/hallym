@@ -15,7 +15,11 @@ HALLYM.HALLYM>put file://C:\Users\Heo\Downloads\order_data_10.csv @hallym_s3_sta
 ```
 ![image](https://github.com/SeongjaeHuh/snowflake/assets/52474199/aa395212-c30e-4876-bc9c-e4fb487b6778)
 
-#### (3) 
+#### (3) unload data file from khns table
+
+```sql
+copy into @AWS_S3_STAGE/KHNS/ from KHNS file_format=Hallym.public.tsv;
+```
 ```
 list @aws_s3_stage/KHNS/;
 ```
