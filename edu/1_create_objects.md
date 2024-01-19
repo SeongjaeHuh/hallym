@@ -43,3 +43,14 @@ PUT file://C:\temp\employees0*.csv @sf_tuts.public.%emp_basic;
 LIST @sf_tuts.public.%emp_basic;
 ```
 ![image](https://github.com/SeongjaeHuh/hallym/assets/52474199/b95239a3-8eb6-4f7e-90ea-2a8034ba95cd)
+
+8. Copy data into target tables
+   
+```sql
+COPY INTO emp_basic
+  FROM @%emp_basic
+  FILE_FORMAT = (type = csv field_optionally_enclosed_by='"')
+  PATTERN = '.*employees0[1-5].csv.gz'
+  ON_ERROR = 'skip_file';
+```
+![image](https://github.com/SeongjaeHuh/hallym/assets/52474199/d1fa5d32-8fbb-4788-b5d8-266a3f66ad3d)
