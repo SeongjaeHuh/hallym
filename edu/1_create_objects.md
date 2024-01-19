@@ -54,3 +54,34 @@ COPY INTO emp_basic
   ON_ERROR = 'skip_file';
 ```
 ![image](https://github.com/SeongjaeHuh/hallym/assets/52474199/d1fa5d32-8fbb-4788-b5d8-266a3f66ad3d)
+
+9.Retrieve all data
+```sql
+SELECT * FROM emp_basic;
+```
+
+10. Insert additional data rows
+```sql
+INSERT INTO emp_basic VALUES
+   ('Clementine','Adamou','cadamou@sf_tuts.com','10510 Sachs Road','Klenak','2017-9-22') ,
+   ('Marlowe','De Anesy','madamouc@sf_tuts.co.uk','36768 Northfield Plaza','Fangshan','2017-1-26');
+```
+
+11. Query rows based on email address
+```sql
+SELECT email FROM emp_basic WHERE email LIKE '%.uk';
+```
+12. Query rows based on start date
+* Filter the list by employees whose start date occurred earlier than January 1, 2017:
+```sql
+SELECT first_name, last_name, DATEADD('day',90,start_date) FROM emp_basic WHERE start_date <= '2017-01-01';
+```
+13. Summary
+* Stage the data files to load. The files can be staged internally (in Snowflake) or in an external location. In this tutorial, you stage files internally.
+* Copy data from the staged files into an existing target table. A running warehouse is required for this step.
+
+14. (Optional) Tutorial cleanup
+```sql
+DROP DATABASE IF EXISTS sf_tuts;
+DROP WAREHOUSE IF EXISTS sf_tuts_wh;
+``` 
