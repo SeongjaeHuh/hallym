@@ -1,3 +1,7 @@
+# Snowflake Tutorial List
+```
+https://docs.snowflake.com/en/tutorials?category=getting+started
+```
 
 1. database 생성
 ```sql
